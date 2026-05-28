@@ -109,18 +109,15 @@ export default function AboutPage() {
                 Small team, deep expertise. Every client works directly with the people who know their payroll inside out.
               </p>
             </div>
-            <div className="flex justify-center">
-              <div className="bg-white rounded-xl border border-[#E2E8F0] overflow-hidden max-w-md w-full shadow-sm">
-                {/* avatar placeholder */}
-                <div className="h-48 bg-gradient-to-br from-[#1B3A6B] to-[#00BFA5]/60 flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-white/20 flex items-center justify-center">
-                    <span className="text-4xl font-bold text-white select-none">NN</span>
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col gap-4">
+
+            <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_300px]">
+
+                {/* LEFT — bio content */}
+                <div className="p-8 md:p-10 flex flex-col gap-5 justify-center">
                   <div>
-                    <h3 className="text-lg font-bold text-[#0F172A]">Nomusa Ndigi</h3>
-                    <p className="text-sm font-semibold text-[#00BFA5]">Founder &amp; Payroll Specialist · Information Officer</p>
+                    <h3 className="text-xl font-bold text-[#0F172A]">Nomusa Ndigi</h3>
+                    <p className="text-sm font-semibold text-[#00BFA5] mt-1">Founder &amp; Payroll Specialist · Information Officer</p>
                   </div>
                   <p className="text-sm text-[#475569] leading-relaxed">
                     Nomusa brings extensive hands-on experience in payroll administration, SARS compliance, and South African labour legislation. She has managed payrolls across diverse sectors — from SMEs and NGOs to schools and private households — and holds in-depth working knowledge of PAYE, UIF, SDL, EMP201/EMP501 submissions, and IRP5 reconciliations.
@@ -128,17 +125,33 @@ export default function AboutPage() {
                   <p className="text-sm text-[#475569] leading-relaxed">
                     As the company&apos;s designated Information Officer, Nomusa ensures all client data is processed and stored in full compliance with the Protection of Personal Information Act (PoPIA). Her approach is methodical, detail-first, and client-focused — ensuring that every payroll cycle runs without error and every SARS obligation is met on time.
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-1">
+                  <div className="flex flex-wrap gap-2">
                     {["PAYE & SARS", "EMP201 / EMP501", "IRP5 Submissions", "UIF & SDL", "PoPIA Compliance", "Payroll Consulting"].map((tag) => (
                       <span key={tag} className="text-xs bg-[#00BFA5]/10 text-[#00BFA5] font-semibold px-2.5 py-1 rounded-full">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <p className="text-xs text-[#94A3B8] mt-1 italic">
+                  <p className="text-xs text-[#94A3B8] italic">
                     * Bio to be reviewed and approved by client before go-live.
                   </p>
                 </div>
+
+                {/* RIGHT — photo placeholder */}
+                <div className="relative bg-gradient-to-br from-[#1B3A6B] to-[#00BFA5]/70 flex flex-col items-center justify-center gap-4 min-h-[300px] md:min-h-0">
+                  {/* portrait silhouette */}
+                  <svg className="w-28 h-28 text-white/30" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+                    <circle cx="50" cy="36" r="22" />
+                    <path d="M10 90 C10 65 90 65 90 90 Z" />
+                  </svg>
+                  <div className="text-center px-4">
+                    <p className="text-xs font-semibold text-white/70 uppercase tracking-widest">Photo</p>
+                    <p className="text-xs text-white/50 mt-1">Replace with headshot</p>
+                  </div>
+                  {/* decorative corner accent */}
+                  <div className="absolute bottom-0 right-0 w-16 h-16 bg-[#00BFA5]/20 rounded-tl-3xl" />
+                </div>
+
               </div>
             </div>
           </div>
