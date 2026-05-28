@@ -133,21 +133,16 @@ export default function AboutPage() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-xs text-[#94A3B8] italic">
-                    * Bio to be reviewed and approved by client before go-live.
-                  </p>
                 </div>
 
-                {/* RIGHT — photo placeholder */}
-                <div className="relative bg-gradient-to-br from-[#1B3A6B] to-[#00BFA5]/70 flex flex-col items-center justify-center gap-4 min-h-[300px] md:min-h-0">
-                  {/* portrait silhouette */}
-                  <svg className="w-28 h-28 text-white/30" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-                    <circle cx="50" cy="36" r="22" />
-                    <path d="M10 90 C10 65 90 65 90 90 Z" />
-                  </svg>
-                  <div className="text-center px-4">
-                    <p className="text-xs font-semibold text-white/70 uppercase tracking-widest">Photo</p>
-                    <p className="text-xs text-white/50 mt-1">Replace with headshot</p>
+                {/* RIGHT — initials avatar (swap <div> for <Image> when headshot is supplied) */}
+                <div className="relative bg-[#F0F4FA] flex flex-col items-center justify-center gap-5 min-h-[300px] md:min-h-0">
+                  <div className="w-36 h-36 rounded-full bg-[#1B3A6B] flex items-center justify-center shadow-xl ring-4 ring-white">
+                    <span className="text-4xl font-bold text-[#00BFA5] tracking-widest select-none">NN</span>
+                  </div>
+                  <div className="text-center px-6">
+                    <p className="text-sm font-bold text-[#0F172A]">Nomusa Ngidi</p>
+                    <p className="text-xs text-[#64748B] mt-0.5">Founder &amp; Payroll Specialist</p>
                   </div>
                   {/* decorative corner accent */}
                   <div className="absolute bottom-0 right-0 w-16 h-16 bg-[#00BFA5]/20 rounded-tl-3xl" />
