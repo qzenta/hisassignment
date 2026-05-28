@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HeroSlider from "@/components/HeroSlider";
 
 const services = [
   {
@@ -120,35 +121,7 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
-        {/* HERO */}
-        <section className="bg-[#1B3A6B] text-white py-24 px-6">
-          <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
-            <div className="inline-flex items-center gap-2 bg-[#00BFA5]/15 text-[#00BFA5] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border border-[#00BFA5]/30">
-              SARS Registered · PoPIA Compliant
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-              Outsource your payroll.<br />
-              <span className="text-[#00BFA5]">Reclaim your time.</span>
-            </h1>
-            <p className="text-lg text-[#CBD5E1] max-w-2xl">
-              Professional payroll management for South African SMEs, NGOs and schools. SARS compliant. PoPIA secure. Personally managed.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-2">
-              <Link
-                href="/contact"
-                className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm"
-              >
-                Get A Free Quote
-              </Link>
-              <Link
-                href="/services"
-                className="px-8 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-sm"
-              >
-                View Services
-              </Link>
-            </div>
-          </div>
-        </section>
+        <HeroSlider />
 
         {/* STATS */}
         <section className="bg-[#00BFA5] py-10 px-6">

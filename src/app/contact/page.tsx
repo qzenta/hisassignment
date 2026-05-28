@@ -48,8 +48,16 @@ export default function ContactPage() {
       <Navbar />
       <main>
         {/* HERO */}
-        <section className="bg-[#1B3A6B] text-white py-20 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
+        <section
+          className="relative text-white py-28 px-6 overflow-hidden flex items-center justify-center min-h-[40vh]"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-[#1B3A6B]/80" />
+          <div className="relative max-w-3xl mx-auto text-center flex flex-col gap-4">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Get A Free Quote</h1>
             <p className="text-[#CBD5E1] text-lg">
               Tell us about your payroll needs and we&apos;ll send a clear, tailored quote within 24 hours.
