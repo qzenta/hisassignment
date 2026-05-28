@@ -18,10 +18,12 @@ type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function ContactPage() {
   const [state, setState] = useState<FormState>("idle");
+  const [errorDetail, setErrorDetail] = useState<string>("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setState("submitting");
+    setErrorDetail("");
 
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form));
@@ -36,6 +38,8 @@ export default function ContactPage() {
         setState("success");
         form.reset();
       } else {
+        const json = await res.json().catch(() => ({}));
+        setErrorDetail(json.detail || "");
         setState("error");
       }
     } catch {
@@ -218,9 +222,10 @@ export default function ContactPage() {
                   </div>
 
                   {state === "error" && (
-                    <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
-                      Something went wrong. Please try again or email us directly.
-                    </p>
+                    <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+                      <p>Something went wrong. Please try again or email us directly.</p>
+                      {errorDetail && <p className="mt-1 text-xs font-mono break-all opacity-70">{errorDetail}</p>}
+                    </div>
                   )}
 
                   <button
