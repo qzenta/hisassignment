@@ -34,7 +34,7 @@ export default function PrivacyPage() {
               <div>
                 <h2 className="text-base font-bold text-[#0F172A] mb-2">1. Information Officer</h2>
                 <p>
-                  Our designated Information Officer responsible for ensuring PoPIA compliance is <strong>Nomusa Ndigi</strong>. For all privacy-related queries or requests, contact us at:{" "}
+                  Our designated Information Officer responsible for ensuring PoPIA compliance is <strong>Nomusa Ngidi</strong>. For all privacy-related queries or requests, contact us at:{" "}
                   <a href="mailto:payroll@hisassignment.co.za" className="text-[#00BFA5] hover:underline">
                     payroll@hisassignment.co.za
                   </a>

@@ -41,7 +41,7 @@ export default function Navbar() {
   const locs = useDropdown();
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-[#E2E8F0] shadow-sm">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-sm">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" aria-label="His Assignment home">
           <Logo size="sm" />

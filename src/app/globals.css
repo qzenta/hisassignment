@@ -35,3 +35,22 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* ── Design patterns ── */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, #1B3A6B1A 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+.bg-dot-grid-light {
+  background-image: radial-gradient(circle, #00BFA51A 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+.bg-stripe-subtle {
+  background-image: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 12px,
+    rgba(255, 255, 255, 0.04) 12px,
+    rgba(255, 255, 255, 0.04) 24px
+  );
+}

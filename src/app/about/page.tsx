@@ -77,17 +77,18 @@ export default function AboutPage() {
         </section>
 
         {/* WHY CHOOSE US */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-5xl mx-auto">
+        <section className="py-20 px-6 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-dot-grid opacity-30 pointer-events-none" />
+          <div className="relative max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <div className="text-xs font-semibold uppercase tracking-widest text-[#00BFA5] mb-3">Why choose us</div>
               <h2 className="text-3xl font-bold text-[#0F172A]">This is why we should work together</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {differentiators.map((d) => (
-                <div key={d.title} className="bg-[#F8FAFC] rounded-xl p-6 border border-[#E2E8F0]">
-                  <div className="w-8 h-8 rounded-full bg-[#1B3A6B] flex items-center justify-center mb-4">
-                    <svg className="w-4 h-4 text-[#00BFA5]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <div key={d.title} className="bg-white rounded-xl p-6 border border-[#E2E8F0] border-l-4 border-l-[#00BFA5]/30 hover:border-l-[#00BFA5] hover:shadow-md transition-all duration-200 group">
+                  <div className="w-8 h-8 rounded-full bg-[#1B3A6B] flex items-center justify-center mb-4 group-hover:bg-[#00BFA5] transition-colors duration-200">
+                    <svg className="w-4 h-4 text-[#00BFA5] group-hover:text-white transition-colors duration-200" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
@@ -116,7 +117,7 @@ export default function AboutPage() {
                 {/* LEFT — bio content */}
                 <div className="p-8 md:p-10 flex flex-col gap-5 justify-center">
                   <div>
-                    <h3 className="text-xl font-bold text-[#0F172A]">Nomusa Ndigi</h3>
+                    <h3 className="text-xl font-bold text-[#0F172A]">Nomusa Ngidi</h3>
                     <p className="text-sm font-semibold text-[#00BFA5] mt-1">Founder &amp; Payroll Specialist · Information Officer</p>
                   </div>
                   <p className="text-sm text-[#475569] leading-relaxed">
@@ -158,15 +159,17 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 px-6 bg-[#1B3A6B] text-white text-center">
-          <div className="max-w-2xl mx-auto flex flex-col items-center gap-6">
+        <section className="relative py-20 px-6 bg-[#1B3A6B] text-white text-center overflow-hidden">
+          <div className="absolute inset-0 bg-dot-grid-light opacity-25 pointer-events-none" />
+          <div className="absolute inset-0 bg-stripe-subtle pointer-events-none" />
+          <div className="relative max-w-2xl mx-auto flex flex-col items-center gap-6">
             <h2 className="text-3xl font-bold">Ready to hand over your payroll?</h2>
             <p className="text-[#CBD5E1]">
               Start with a free consultation. We&apos;ll understand your needs and send you a clear, no-obligation quote.
             </p>
             <Link
               href="/contact"
-              className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm"
+              className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm shadow-lg shadow-[#00BFA5]/25"
             >
               Get A Free Quote
             </Link>

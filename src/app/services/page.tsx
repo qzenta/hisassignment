@@ -117,37 +117,47 @@ export default function ServicesPage() {
         </section>
 
         {/* SERVICES GRID */}
-        <section className="py-20 px-6 bg-[#F8FAFC]">
-          <div className="max-w-6xl mx-auto flex flex-col gap-8">
+        <section className="py-20 px-6 bg-[#F8FAFC] relative overflow-hidden">
+          <div className="absolute inset-0 bg-dot-grid opacity-30 pointer-events-none" />
+          <div className="relative max-w-6xl mx-auto flex flex-col gap-6">
             {services.map((s, i) => (
               <div
                 key={s.title}
-                className={`bg-white rounded-xl border border-[#E2E8F0] p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-start ${
-                  i % 2 === 1 ? "md:direction-rtl" : ""
-                }`}
+                className="relative bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden hover:shadow-lg transition-shadow duration-200 group"
               >
-                <div className="flex flex-col gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#00BFA5]/10 text-[#00BFA5] flex items-center justify-center">
-                    {s.icon}
+                {/* gradient top-line */}
+                <div className="h-[3px] bg-gradient-to-r from-[#1B3A6B] via-[#00BFA5] to-[#1B3A6B]" />
+                <div className="p-8 grid grid-cols-1 md:grid-cols-[1fr_280px] gap-8 items-start">
+                  {/* left: description */}
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-[#00BFA5]/10 text-[#00BFA5] flex items-center justify-center shrink-0 group-hover:bg-[#00BFA5] group-hover:text-white transition-colors duration-200">
+                        {s.icon}
+                      </div>
+                      <span className="text-xs font-bold text-[#CBD5E1] tabular-nums">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h2 className="text-xl font-bold text-[#0F172A]">{s.title}</h2>
+                    <p className="text-[#475569] leading-relaxed text-sm">{s.desc}</p>
+                    <Link href="/contact" className="inline-flex items-center gap-1.5 text-[#00BFA5] text-sm font-semibold hover:gap-2.5 transition-all">
+                      Get a quote <span aria-hidden>→</span>
+                    </Link>
                   </div>
-                  <h2 className="text-xl font-bold text-[#0F172A]">{s.title}</h2>
-                  <p className="text-[#475569] leading-relaxed">{s.desc}</p>
-                  <Link href="/contact" className="text-[#00BFA5] text-sm font-semibold hover:underline">
-                    Get a quote →
-                  </Link>
-                </div>
-                <div className="bg-[#F8FAFC] rounded-xl p-6 border border-[#E2E8F0]">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-[#94A3B8] mb-4">What&apos;s included</h3>
-                  <ul className="flex flex-col gap-2.5">
-                    {s.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2.5 text-sm text-[#475569]">
-                        <svg className="w-4 h-4 shrink-0 text-[#00BFA5]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
+                  {/* right: features */}
+                  <div className="bg-[#F8FAFC] rounded-xl p-5 border border-[#E2E8F0]">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-[#94A3B8] mb-4">What&apos;s included</h3>
+                    <ul className="flex flex-col gap-2.5">
+                      {s.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-[#475569]">
+                          <svg className="w-4 h-4 shrink-0 text-[#00BFA5] mt-0.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             ))}
@@ -155,15 +165,17 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 px-6 bg-[#1B3A6B] text-white text-center">
-          <div className="max-w-2xl mx-auto flex flex-col items-center gap-6">
+        <section className="relative py-20 px-6 bg-[#1B3A6B] text-white text-center overflow-hidden">
+          <div className="absolute inset-0 bg-dot-grid-light opacity-25 pointer-events-none" />
+          <div className="absolute inset-0 bg-stripe-subtle pointer-events-none" />
+          <div className="relative max-w-2xl mx-auto flex flex-col items-center gap-6">
             <h2 className="text-3xl font-bold">Not sure which service you need?</h2>
             <p className="text-[#CBD5E1]">
               Book a free consultation and we&apos;ll recommend the right solution for your business size and compliance needs.
             </p>
             <Link
               href="/contact"
-              className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm"
+              className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm shadow-lg shadow-[#00BFA5]/25"
             >
               Book A Free Consultation
             </Link>

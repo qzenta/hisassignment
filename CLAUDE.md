@@ -11,7 +11,7 @@
 - Framework: Next.js 15 + Tailwind CSS + TypeScript
 - GitHub: github.com/qzenta/hisassignment
 - Deployment: Vercel (auto-deploy on master push)
-- DNS: hisassignment.co.za stays on Axxess permanently (.co.za cannot transfer to Cloudflare)
+- DNS: hisassignment.co.za registrar = Axxess (stays there — .co.za cannot transfer to Cloudflare Registrar). DNS nameservers pointed to Cloudflare ✅ confirmed 2026-05-28. A @ → 76.76.21.21 (Proxied), CNAME www → cname.vercel-dns.com (Proxied). SSL mode: Full.
 - Email: Brevo (transactional) — wired but not activated until client approval
 - Brand: See CONTENT.md for colours, logo, and all extracted copy
 

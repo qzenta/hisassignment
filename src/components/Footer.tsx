@@ -21,8 +21,12 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1B3A6B] text-white">
-      <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-[#1B3A6B] text-white relative overflow-hidden">
+      {/* teal gradient top-line */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#00BFA5] to-transparent" />
+      {/* subtle dot pattern */}
+      <div className="absolute inset-0 bg-dot-grid-light opacity-20 pointer-events-none" />
+      <div className="relative max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
         {/* col 1 — brand */}
         <div className="flex flex-col gap-4">
@@ -98,7 +102,7 @@ export default function Footer() {
       </div>
 
       {/* bottom bar */}
-      <div className="border-t border-[#2D4F8A] py-5">
+      <div className="relative border-t border-[#2D4F8A] py-5">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#64748B]">
           <span>© {new Date().getFullYear()} His Assignment Payroll Solutions. All rights reserved.</span>
           <div className="flex gap-5">
