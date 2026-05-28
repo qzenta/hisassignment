@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
   if (!emailRes.ok) {
     const brevoError = await emailRes.text();
     console.error("[contact] Brevo email error:", brevoError);
-    return NextResponse.json({ error: "Email delivery failed", detail: brevoError }, { status: 502 });
+    return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
   }
 
   // 2 — Upsert contact into Brevo CRM
