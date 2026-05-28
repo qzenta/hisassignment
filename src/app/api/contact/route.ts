@@ -68,11 +68,9 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         email,
         attributes: {
-          FIRSTNAME:   firstName,
-          LASTNAME:    lastName,
-          COMPANY:     company || "",
-          FORM_TYPE:   "contact",
-          LEAD_STATUS: "new",
+          FIRSTNAME: firstName,
+          LASTNAME:  lastName,
+          COMPANY:   company || "",
         },
         listIds:       BREVO_LIST_ID ? [BREVO_LIST_ID] : [],
         updateEnabled: true, // upsert — won't duplicate if they submit again
