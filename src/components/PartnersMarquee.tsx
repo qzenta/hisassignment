@@ -2,13 +2,13 @@ import Image from "next/image";
 
 // hasLogo = true means a file exists at /public/{slug}.svg
 const partners = [
-  { name: "SimplePay",    slug: "simplepay",  hasLogo: false },
-  { name: "Sikatrix",     slug: "sikatrix",   hasLogo: false },
-  { name: "Xero",         slug: "xero",       hasLogo: false },
-  { name: "PaySpace",     slug: "payspace",   hasLogo: true  },
-  { name: "Sage Pay",     slug: "sagepay",    hasLogo: true  },
-  { name: "Papaya Global",slug: "papaya",     hasLogo: false },
-  { name: "QuickBooks",   slug: "quickbooks", hasLogo: false },
+  { name: "SimplePay",    slug: "simplepay",  hasLogo: true },
+  { name: "Sikatrix",     slug: "sikatrix",   hasLogo: true },
+  { name: "Xero",         slug: "xero",       hasLogo: true },
+  { name: "PaySpace",     slug: "payspace",   hasLogo: true },
+  { name: "Sage Pay",     slug: "sagepay",    hasLogo: true },
+  { name: "Papaya Global",slug: "papaya",     hasLogo: true },
+  { name: "QuickBooks",   slug: "quickbooks", hasLogo: true },
 ];
 
 export default function PartnersMarquee() {
