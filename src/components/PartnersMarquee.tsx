@@ -1,14 +1,14 @@
 import Image from "next/image";
 
-// hasLogo = true means a file exists at /public/{slug}.svg
+// w/h control the rendered size — tune per logo as needed
 const partners = [
-  { name: "SimplePay",    slug: "simplepay",  hasLogo: true },
-  { name: "Sikatrix",     slug: "sikatrix",   hasLogo: true },
-  { name: "Xero",         slug: "xero",       hasLogo: true },
-  { name: "PaySpace",     slug: "payspace",   hasLogo: true },
-  { name: "Sage Pay",     slug: "sagepay",    hasLogo: true },
-  { name: "Papaya Global",slug: "papaya",     hasLogo: true },
-  { name: "QuickBooks",   slug: "quickbooks", hasLogo: true },
+  { name: "SimplePay",    slug: "simplepay",  w: 120, h: 36 },
+  { name: "Sikatrix",     slug: "sikatrix",   w: 110, h: 36 },
+  { name: "Xero",         slug: "xero",       w: 80,  h: 36 },
+  { name: "PaySpace",     slug: "payspace",   w: 120, h: 36 },
+  { name: "Sage Pay",     slug: "sagepay",    w: 110, h: 36 },
+  { name: "Papaya Global",slug: "papaya",     w: 120, h: 36 },
+  { name: "QuickBooks",   slug: "quickbooks", w: 150, h: 40 },
 ];
 
 export default function PartnersMarquee() {
@@ -25,26 +25,20 @@ export default function PartnersMarquee() {
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
-        <div className="flex animate-marquee whitespace-nowrap">
+        <div className="flex items-center animate-marquee whitespace-nowrap">
           {items.map((p, i) => (
             <div
               key={`${p.slug}-${i}`}
-              className="inline-flex items-center justify-center mx-8 min-w-[120px] h-10"
+              className="inline-flex items-center justify-center mx-10"
               title={p.name}
             >
-              {p.hasLogo ? (
-                <Image
-                  src={`/${p.slug}.svg`}
-                  alt={p.name}
-                  width={120}
-                  height={40}
-                  className="object-contain opacity-60 hover:opacity-100 transition-opacity"
-                />
-              ) : (
-                <span className="text-sm font-bold tracking-wide text-[#94A3B8] hover:text-[#1B3A6B] transition-colors cursor-default select-none">
-                  {p.name}
-                </span>
-              )}
+              <Image
+                src={`/${p.slug}.svg`}
+                alt={p.name}
+                width={p.w}
+                height={p.h}
+                className="object-contain opacity-60 hover:opacity-100 transition-opacity"
+              />
             </div>
           ))}
         </div>
