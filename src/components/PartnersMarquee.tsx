@@ -1,18 +1,17 @@
-// Partner logo slots — replace the text spans with <Image> tags when logo files are available.
-// Recommended size: 120×40px, white or dark version depending on background.
+import Image from "next/image";
 
+// hasLogo = true means a file exists at /public/{slug}.svg
 const partners = [
-  { name: "SimplePay", slug: "simplepay" },
-  { name: "Sikatrix", slug: "sikatrix" },
-  { name: "Xero", slug: "xero" },
-  { name: "PaySpace", slug: "payspace" },
-  { name: "Sage Pay", slug: "sagepay" },
-  { name: "Papaya Global", slug: "papaya" },
-  { name: "QuickBooks", slug: "quickbooks" },
+  { name: "SimplePay",    slug: "simplepay",  hasLogo: false },
+  { name: "Sikatrix",     slug: "sikatrix",   hasLogo: false },
+  { name: "Xero",         slug: "xero",       hasLogo: false },
+  { name: "PaySpace",     slug: "payspace",   hasLogo: true  },
+  { name: "Sage Pay",     slug: "sagepay",    hasLogo: true  },
+  { name: "Papaya Global",slug: "papaya",     hasLogo: false },
+  { name: "QuickBooks",   slug: "quickbooks", hasLogo: false },
 ];
 
 export default function PartnersMarquee() {
-  // Duplicate list so the loop is seamless
   const items = [...partners, ...partners];
 
   return (
@@ -33,14 +32,19 @@ export default function PartnersMarquee() {
               className="inline-flex items-center justify-center mx-8 min-w-[120px] h-10"
               title={p.name}
             >
-              {/*
-                TO ADD A LOGO:
-                Replace the span below with:
-                <Image src={`/logos/${p.slug}.svg`} alt={p.name} width={120} height={40} className="object-contain opacity-60 hover:opacity-100 transition-opacity" />
-              */}
-              <span className="text-sm font-bold tracking-wide text-[#94A3B8] hover:text-[#1B3A6B] transition-colors cursor-default select-none">
-                {p.name}
-              </span>
+              {p.hasLogo ? (
+                <Image
+                  src={`/${p.slug}.svg`}
+                  alt={p.name}
+                  width={120}
+                  height={40}
+                  className="object-contain opacity-60 hover:opacity-100 transition-opacity"
+                />
+              ) : (
+                <span className="text-sm font-bold tracking-wide text-[#94A3B8] hover:text-[#1B3A6B] transition-colors cursor-default select-none">
+                  {p.name}
+                </span>
+              )}
             </div>
           ))}
         </div>
