@@ -99,6 +99,51 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* TEAM */}
+        <section className="py-20 px-6 bg-[#F8FAFC]">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="text-xs font-semibold uppercase tracking-widest text-[#00BFA5] mb-3">Our Team</div>
+              <h2 className="text-3xl font-bold text-[#0F172A]">The people behind your payroll</h2>
+              <p className="mt-3 text-[#64748B] max-w-xl mx-auto">
+                Small team, deep expertise. Every client works directly with the people who know their payroll inside out.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <div className="bg-white rounded-xl border border-[#E2E8F0] overflow-hidden max-w-md w-full shadow-sm">
+                {/* avatar placeholder */}
+                <div className="h-48 bg-gradient-to-br from-[#1B3A6B] to-[#00BFA5]/60 flex items-center justify-center">
+                  <div className="w-24 h-24 rounded-full bg-white/20 flex items-center justify-center">
+                    <span className="text-4xl font-bold text-white select-none">NN</span>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col gap-4">
+                  <div>
+                    <h3 className="text-lg font-bold text-[#0F172A]">Nomusa Ndigi</h3>
+                    <p className="text-sm font-semibold text-[#00BFA5]">Founder &amp; Payroll Specialist · Information Officer</p>
+                  </div>
+                  <p className="text-sm text-[#475569] leading-relaxed">
+                    Nomusa brings extensive hands-on experience in payroll administration, SARS compliance, and South African labour legislation. She has managed payrolls across diverse sectors — from SMEs and NGOs to schools and private households — and holds in-depth working knowledge of PAYE, UIF, SDL, EMP201/EMP501 submissions, and IRP5 reconciliations.
+                  </p>
+                  <p className="text-sm text-[#475569] leading-relaxed">
+                    As the company&apos;s designated Information Officer, Nomusa ensures all client data is processed and stored in full compliance with the Protection of Personal Information Act (PoPIA). Her approach is methodical, detail-first, and client-focused — ensuring that every payroll cycle runs without error and every SARS obligation is met on time.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    {["PAYE & SARS", "EMP201 / EMP501", "IRP5 Submissions", "UIF & SDL", "PoPIA Compliance", "Payroll Consulting"].map((tag) => (
+                      <span key={tag} className="text-xs bg-[#00BFA5]/10 text-[#00BFA5] font-semibold px-2.5 py-1 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-xs text-[#94A3B8] mt-1 italic">
+                    * Bio to be reviewed and approved by client before go-live.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-20 px-6 bg-[#1B3A6B] text-white text-center">
           <div className="max-w-2xl mx-auto flex flex-col items-center gap-6">

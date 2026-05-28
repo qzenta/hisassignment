@@ -2,59 +2,36 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSlider from "@/components/HeroSlider";
+import PartnersMarquee from "@/components/PartnersMarquee";
 
 const services = [
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 20h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-      </svg>
-    ),
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 20h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>,
     title: "Full Payroll Administration",
     desc: "End-to-end payroll processing — salaries, deductions, overtime, bonuses, and statutory contributions handled accurately every cycle.",
   },
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-      </svg>
-    ),
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>,
     title: "SARS Compliance Management",
     desc: "EMP201, EMP501, IRP5, and IT3(a) submissions handled on time. Never miss a SARS deadline again.",
   },
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-      </svg>
-    ),
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>,
     title: "UIF & SDL Administration",
-    desc: "Full management of statutory obligations — PAYE, UIF, and SDL — ensuring complete compliance with South African tax and labour law.",
+    desc: "Full management of PAYE, UIF, and SDL obligations — ensuring complete compliance with South African tax and labour law.",
   },
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-      </svg>
-    ),
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>,
     title: "Leave Management",
     desc: "Accurate leave tracking and administration, fully integrated with your payroll cycle for zero discrepancies.",
   },
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-      </svg>
-    ),
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>,
     title: "Year-End Tax Certificates",
-    desc: "IRP5 and IT3(a) certificates prepared and submitted accurately, making tax season stress-free for you and your employees.",
+    desc: "IRP5 and IT3(a) certificates prepared and submitted — making tax season completely stress-free.",
   },
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
-      </svg>
-    ),
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>,
     title: "Payroll Consulting",
     desc: "Expert advice on payroll structures, compliance queries, and operational improvements tailored to your business.",
   },
@@ -65,37 +42,6 @@ const steps = [
   { n: "02", title: "Custom Proposal", desc: "You receive a clear, itemised proposal matched to your exact requirements and budget." },
   { n: "03", title: "Seamless Onboarding", desc: "We handle the migration from your current system with zero disruption to payroll runs." },
   { n: "04", title: "Ongoing Management", desc: "Your dedicated payroll department — handling every cycle, submission, and query." },
-];
-
-const packages = [
-  {
-    name: "Starter",
-    employees: "1–5 employees",
-    features: ["Full payroll processing", "EMP201 submission", "Email payslips", "UIF administration"],
-    cta: "Get started",
-    highlight: false,
-  },
-  {
-    name: "Growth",
-    employees: "6–20 employees",
-    features: ["Everything in Starter", "Leave management", "Basic payroll reporting", "Quarterly payroll review"],
-    cta: "Most popular",
-    highlight: true,
-  },
-  {
-    name: "Business",
-    employees: "21–50 employees",
-    features: ["Everything in Growth", "Custom payroll reports", "Dedicated consultant", "Priority support"],
-    cta: "Get started",
-    highlight: false,
-  },
-  {
-    name: "Enterprise",
-    employees: "50+ employees",
-    features: ["Custom quote", "Multi-location payroll", "Tailored solution", "SLA guarantees"],
-    cta: "Contact us",
-    highlight: false,
-  },
 ];
 
 const testimonials = [
@@ -121,6 +67,7 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
+        {/* HERO SLIDER */}
         <HeroSlider />
 
         {/* STATS */}
@@ -139,13 +86,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SERVICES OVERVIEW */}
+        {/* PARTNERS MARQUEE */}
+        <PartnersMarquee />
+
+        {/* SERVICES */}
         <section className="py-20 px-6 bg-[#F8FAFC]">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-[#0F172A]">Everything payroll. Nothing else.</h2>
               <p className="mt-3 text-[#64748B] max-w-xl mx-auto">
-                We specialise in one thing and do it exceptionally well — so you never have to think about payroll again.
+                We specialise in one discipline and do it exceptionally well — so you can focus on running your business.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -172,7 +122,7 @@ export default function HomePage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-[#0F172A]">How it works</h2>
-              <p className="mt-3 text-[#64748B]">Getting started is simple — we handle everything from consultation to go-live.</p>
+              <p className="mt-3 text-[#64748B]">Getting started is simple — four steps from enquiry to fully managed payroll.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {steps.map((step) => (
@@ -188,79 +138,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* PRICING */}
-        <section className="py-20 px-6 bg-[#F8FAFC]">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-[#0F172A]">Packages for every size</h2>
-              <p className="mt-3 text-[#64748B]">Transparent pricing. No hidden fees. Cancel or upgrade anytime.</p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {packages.map((p) => (
-                <div
-                  key={p.name}
-                  className={`rounded-xl p-6 border flex flex-col gap-4 ${
-                    p.highlight
-                      ? "bg-[#1B3A6B] border-[#1B3A6B] text-white shadow-xl scale-[1.02]"
-                      : "bg-white border-[#E2E8F0] text-[#0F172A]"
-                  }`}
-                >
-                  <div>
-                    <h3 className={`font-bold text-lg ${p.highlight ? "text-white" : "text-[#0F172A]"}`}>{p.name}</h3>
-                    <p className={`text-xs mt-1 ${p.highlight ? "text-[#00BFA5]" : "text-[#64748B]"}`}>{p.employees}</p>
-                  </div>
-                  <ul className="flex flex-col gap-2 flex-1">
-                    {p.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <svg className="w-4 h-4 mt-0.5 shrink-0 text-[#00BFA5]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className={p.highlight ? "text-[#CBD5E1]" : "text-[#64748B]"}>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className={`mt-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-center transition-colors ${
-                      p.highlight
-                        ? "bg-[#00BFA5] text-white hover:bg-[#00a892]"
-                        : "border border-[#1B3A6B] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white"
-                    }`}
-                  >
-                    {p.cta}
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CLIENT SEGMENTS */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-[#0F172A] mb-4">Who we serve</h2>
-            <p className="text-[#64748B] mb-10">From sole traders to schools — we have the right solution for your payroll.</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { label: "SMEs", icon: "🏢" },
-                { label: "NGOs & Non-profits", icon: "🤝" },
-                { label: "Schools", icon: "🏫" },
-                { label: "Private Households", icon: "🏡" },
-              ].map((seg) => (
-                <div key={seg.label} className="bg-[#F8FAFC] rounded-xl p-6 border border-[#E2E8F0] flex flex-col items-center gap-3">
-                  <span className="text-3xl">{seg.icon}</span>
-                  <span className="text-sm font-semibold text-[#0F172A]">{seg.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* TESTIMONIALS */}
         <section className="py-20 px-6 bg-[#F8FAFC]">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-[#0F172A]">What our clients say</h2>
+              <p className="mt-3 text-[#64748B]">Trusted by SMEs, NGOs and schools across Gauteng.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {testimonials.map((t) => (
@@ -283,17 +166,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* FINAL CTA */}
+        {/* CTA */}
         <section className="py-20 px-6 bg-[#1B3A6B] text-white text-center">
           <div className="max-w-2xl mx-auto flex flex-col items-center gap-6">
             <h2 className="text-3xl font-bold">Ready to hand over your payroll?</h2>
             <p className="text-[#CBD5E1]">
               Get a free consultation and custom quote. No obligation — just a conversation about how we can take payroll off your plate.
             </p>
-            <Link
-              href="/contact"
-              className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm"
-            >
+            <Link href="/contact" className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm">
               Book A Free Consultation
             </Link>
           </div>
