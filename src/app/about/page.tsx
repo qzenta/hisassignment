@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -121,10 +122,10 @@ export default function AboutPage() {
                     <p className="text-sm font-semibold text-[#00BFA5] mt-1">Founder &amp; Payroll Specialist · Information Officer</p>
                   </div>
                   <p className="text-sm text-[#475569] leading-relaxed">
-                    Nomusa brings extensive hands-on experience in payroll administration, SARS compliance, and South African labour legislation. She has managed payrolls across diverse sectors — from SMEs and NGOs to schools and private households — and holds in-depth working knowledge of PAYE, UIF, SDL, EMP201/EMP501 submissions, and IRP5 reconciliations.
+                    Nomusa is a dedicated Payroll Specialist with hands-on experience across the full payroll function — from processing and compliance to year-end submissions. She has supported businesses, NGOs, schools and private households across the City of Johannesburg and broader Gauteng, building a reputation for accuracy, reliability and personal service.
                   </p>
                   <p className="text-sm text-[#475569] leading-relaxed">
-                    As the company&apos;s designated Information Officer, Nomusa ensures all client data is processed and stored in full compliance with the Protection of Personal Information Act (PoPIA). Her approach is methodical, detail-first, and client-focused — ensuring that every payroll cycle runs without error and every SARS obligation is met on time.
+                    Her expertise spans PAYE, UIF, SDL, EMP201/EMP501 submissions and IRP5 reconciliations. As the company&apos;s designated Information Officer, she ensures all client data is handled in full compliance with PoPIA — giving clients confidence that their payroll is not only accurate, but secure.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {["PAYE & SARS", "EMP201 / EMP501", "IRP5 Submissions", "UIF & SDL", "PoPIA Compliance", "Payroll Consulting"].map((tag) => (
@@ -135,16 +136,21 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* RIGHT — initials avatar (swap <div> for <Image> when headshot is supplied) */}
-                <div className="relative bg-[#F0F4FA] flex flex-col items-center justify-center gap-5 min-h-[300px] md:min-h-0">
-                  <div className="w-36 h-36 rounded-full bg-[#1B3A6B] flex items-center justify-center shadow-xl ring-4 ring-white">
-                    <span className="text-4xl font-bold text-[#00BFA5] tracking-widest select-none">NN</span>
+                {/* RIGHT — headshot */}
+                <div className="relative bg-[#F0F4FA] flex flex-col items-center justify-center gap-5 min-h-[300px] md:min-h-0 overflow-hidden">
+                  <div className="w-40 h-40 rounded-full overflow-hidden shadow-xl ring-4 ring-white">
+                    <Image
+                      src="/nomusa.png"
+                      alt="Nomusa Ngidi — Founder & Payroll Specialist"
+                      width={160}
+                      height={160}
+                      className="object-cover w-full h-full object-top"
+                    />
                   </div>
                   <div className="text-center px-6">
                     <p className="text-sm font-bold text-[#0F172A]">Nomusa Ngidi</p>
                     <p className="text-xs text-[#64748B] mt-0.5">Founder &amp; Payroll Specialist</p>
                   </div>
-                  {/* decorative corner accent */}
                   <div className="absolute bottom-0 right-0 w-16 h-16 bg-[#00BFA5]/20 rounded-tl-3xl" />
                 </div>
 
