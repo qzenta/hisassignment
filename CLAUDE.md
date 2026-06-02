@@ -8,11 +8,12 @@
 - Managed by: Qzenta (Pty) Ltd under Daniel Onukpa
 
 ## Tech Stack
-- Framework: Next.js 15 + Tailwind CSS + TypeScript
+- Framework: Next.js 16 + Tailwind CSS v4 + TypeScript
+- Local path: C:\Users\Daniel\OneDrive - Ghana Diaspora SA\Documents\Dev\web-clients\hisassignment
 - GitHub: github.com/qzenta/hisassignment
-- Deployment: Vercel (auto-deploy on master push)
-- DNS: hisassignment.co.za registrar = Axxess (stays there — .co.za cannot transfer to Cloudflare Registrar). DNS nameservers pointed to Cloudflare ✅ confirmed 2026-05-28. A @ → 76.76.21.21 (Proxied), CNAME www → cname.vercel-dns.com (Proxied). SSL mode: Full.
-- Email: Brevo (transactional) — wired but not activated until client approval
+- Deployment: Vercel (manual `vercel deploy --prod` — GitHub auto-deploy pending Vercel plan resolution)
+- DNS: hisassignment.co.za on Axxess registrar; nameservers → Cloudflare ✅. A @ → 76.76.21.21 (DNS only), CNAME www → cname.vercel-dns.com (DNS only). SSL: Vercel handles directly. Site LIVE ✅
+- Email: Brevo fully active ✅ — BREVO_API_KEY, CONTACT_TO_EMAIL, BREVO_LIST_ID=7 set in Vercel
 - Brand: See CONTENT.md for colours, logo, and all extracted copy
 
 ## Brand
@@ -28,15 +29,12 @@
 - CONTENT.md        — All extracted site copy and branding (source of truth)
 
 ## Confirmed — Never Ask Again
-- WordPress → Next.js migration
+- WordPress → Next.js migration (complete — site is LIVE)
 - Domain stays on Axxess — .co.za cannot transfer to Cloudflare Registrar
 - R3,000 setup already paid — do not reference billing in build sessions
 - Repo lives under github.com/qzenta org
-- Do NOT cut over Axxess DNS until client approves Vercel preview
+- DNS cutover already done — site is live at hisassignment.co.za
+- Brevo already active — do not re-configure
 
 ## Notion Client Entry
 - Always fetch before starting: https://www.notion.so/36e8e3e04cde81b8a4e7d2df42b48ff7
-
-## Do Not Touch
-- Axxess DNS until new site is fully tested and approved by client
-- Existing WordPress site until cutover is confirmed

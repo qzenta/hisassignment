@@ -1,17 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --ha-teal: #00BFA5;
-  --ha-navy: #1B3A6B;
-  --ha-off-white: #F8FAFC;
-  --ha-dark: #0F172A;
+  /* refined palette — Accace-inspired */
+  --ha-teal: #14B8A6;
+  --ha-teal-dark: #0F9488;
+  --ha-navy: #1A2E4A;
+  --ha-body: #1F2937;
+  --ha-caption: #6B7280;
+  --ha-band: #F8FAFB;
+  --ha-off-white: #F8FAFB;
+  --ha-dark: #1F2937;
   --ha-grey: #94A3B8;
-  --ha-light-grey: #E2E8F0;
+  --ha-light-grey: #E5E7EB;
+  --ha-border: #E5E7EB;
 }
 
 @theme inline {
   --color-ha-teal: var(--ha-teal);
+  --color-ha-teal-dark: var(--ha-teal-dark);
   --color-ha-navy: var(--ha-navy);
+  --color-ha-body: var(--ha-body);
+  --color-ha-caption: var(--ha-caption);
+  --color-ha-band: var(--ha-band);
   --color-ha-off-white: var(--ha-off-white);
   --color-ha-dark: var(--ha-dark);
   --color-ha-grey: var(--ha-grey);
@@ -20,8 +30,8 @@
 }
 
 body {
-  background: var(--ha-off-white);
-  color: var(--ha-dark);
+  background: #fff;
+  color: var(--ha-body);
   font-family: var(--font-inter), Arial, sans-serif;
 }
 
@@ -38,11 +48,11 @@ body {
 
 /* ── Design patterns ── */
 .bg-dot-grid {
-  background-image: radial-gradient(circle, #1B3A6B1A 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, #1A2E4A1A 1.5px, transparent 1.5px);
   background-size: 22px 22px;
 }
 .bg-dot-grid-light {
-  background-image: radial-gradient(circle, #00BFA51A 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, #14B8A61A 1.5px, transparent 1.5px);
   background-size: 22px 22px;
 }
 .bg-stripe-subtle {

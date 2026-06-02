@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Logo from "./Logo";
 import { locations } from "@/lib/locations";
 
@@ -36,12 +36,19 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServices, setMobileServices] = useState(false);
   const [mobileLocations, setMobileLocations] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const services = useDropdown();
   const locs = useDropdown();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-sm">
+    <header className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E5E7EB] transition-shadow duration-200 ${scrolled ? "shadow-md" : "shadow-none"}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" aria-label="His Assignment home">
           <Logo size="sm" />
@@ -49,16 +56,16 @@ export default function Navbar() {
 
         {/* ── desktop nav ── */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-sm font-medium text-[#0F172A] hover:text-[#00BFA5] transition-colors">
+          <Link href="/" className="text-sm font-medium text-[#1F2937] hover:text-[#14B8A6] transition-colors">
             Home
           </Link>
-          <Link href="/about" className="text-sm font-medium text-[#0F172A] hover:text-[#00BFA5] transition-colors">
+          <Link href="/about" className="text-sm font-medium text-[#1F2937] hover:text-[#14B8A6] transition-colors">
             About
           </Link>
 
           {/* Services dropdown */}
           <div className="relative" onMouseEnter={services.enter} onMouseLeave={services.leave}>
-            <button className="flex items-center gap-1 text-sm font-medium text-[#0F172A] hover:text-[#00BFA5] transition-colors">
+            <button className="flex items-center gap-1 text-sm font-medium text-[#1F2937] hover:text-[#14B8A6] transition-colors">
               Services
               <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${services.open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -67,21 +74,21 @@ export default function Navbar() {
 
             {services.open && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-64">
-                <div className="bg-white rounded-xl border border-[#E2E8F0] shadow-xl py-2">
+                <div className="bg-white rounded-xl border border-[#E5E7EB] shadow-xl py-2">
                   <Link
                     href="/services"
                     onClick={services.close}
-                    className="block px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#00BFA5] hover:bg-[#F8FAFC]"
+                    className="block px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#14B8A6] hover:bg-[#F8FAFC]"
                   >
                     All Services
                   </Link>
-                  <div className="border-t border-[#E2E8F0] my-1" />
+                  <div className="border-t border-[#E5E7EB] my-1" />
                   {serviceLinks.map((s) => (
                     <Link
                       key={s.label}
                       href={s.href}
                       onClick={services.close}
-                      className="block px-4 py-2 text-sm text-[#0F172A] hover:bg-[#F8FAFC] hover:text-[#00BFA5] transition-colors"
+                      className="block px-4 py-2 text-sm text-[#1F2937] hover:bg-[#F8FAFC] hover:text-[#14B8A6] transition-colors"
                     >
                       {s.label}
                     </Link>
@@ -93,7 +100,7 @@ export default function Navbar() {
 
           {/* Locations dropdown */}
           <div className="relative" onMouseEnter={locs.enter} onMouseLeave={locs.leave}>
-            <button className="flex items-center gap-1 text-sm font-medium text-[#0F172A] hover:text-[#00BFA5] transition-colors">
+            <button className="flex items-center gap-1 text-sm font-medium text-[#1F2937] hover:text-[#14B8A6] transition-colors">
               Locations
               <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${locs.open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -102,25 +109,25 @@ export default function Navbar() {
 
             {locs.open && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-56">
-                <div className="bg-white rounded-xl border border-[#E2E8F0] shadow-xl py-2">
+                <div className="bg-white rounded-xl border border-[#E5E7EB] shadow-xl py-2">
                   <Link
                     href="/locations"
                     onClick={locs.close}
-                    className="block px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#00BFA5] hover:bg-[#F8FAFC]"
+                    className="block px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#14B8A6] hover:bg-[#F8FAFC]"
                   >
                     All Locations
                   </Link>
-                  <div className="border-t border-[#E2E8F0] my-1" />
+                  <div className="border-t border-[#E5E7EB] my-1" />
                   {locations.map((loc) => (
                     <Link
                       key={loc.slug}
                       href={`/locations/${loc.slug}`}
                       onClick={locs.close}
-                      className="flex items-center justify-between px-4 py-2 text-sm text-[#0F172A] hover:bg-[#F8FAFC] hover:text-[#00BFA5] transition-colors"
+                      className="flex items-center justify-between px-4 py-2 text-sm text-[#1F2937] hover:bg-[#F8FAFC] hover:text-[#14B8A6] transition-colors"
                     >
                       {loc.name}
                       {loc.isHQ && (
-                        <span className="text-[10px] bg-[#00BFA5]/10 text-[#00BFA5] px-1.5 py-0.5 rounded font-semibold">HQ</span>
+                        <span className="text-[10px] bg-[#14B8A6]/10 text-[#14B8A6] px-1.5 py-0.5 rounded font-semibold">HQ</span>
                       )}
                     </Link>
                   ))}
@@ -129,13 +136,13 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="/contact" className="text-sm font-medium text-[#0F172A] hover:text-[#00BFA5] transition-colors">
+          <Link href="/contact" className="text-sm font-medium text-[#1F2937] hover:text-[#14B8A6] transition-colors">
             Contact
           </Link>
 
           <Link
             href="/contact"
-            className="ml-2 px-5 py-2 rounded-lg bg-[#00BFA5] text-white text-sm font-semibold hover:bg-[#00a892] transition-colors"
+            className="ml-2 px-5 py-2 rounded-lg bg-[#14B8A6] text-white text-sm font-semibold hover:bg-[#0F9488] transition-colors"
           >
             Get A Quote
           </Link>
@@ -143,7 +150,7 @@ export default function Navbar() {
 
         {/* mobile toggle */}
         <button
-          className="md:hidden p-2 text-[#0F172A]"
+          className="md:hidden p-2 text-[#1F2937]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -161,14 +168,14 @@ export default function Navbar() {
 
       {/* ── mobile menu ── */}
       {mobileOpen && (
-        <nav className="md:hidden border-t border-[#E2E8F0] bg-white px-6 py-4 flex flex-col gap-1 max-h-[80vh] overflow-y-auto">
-          <Link href="/" onClick={() => setMobileOpen(false)} className="py-2 text-sm font-medium text-[#0F172A]">Home</Link>
-          <Link href="/about" onClick={() => setMobileOpen(false)} className="py-2 text-sm font-medium text-[#0F172A]">About</Link>
+        <nav className="md:hidden border-t border-[#E5E7EB] bg-white px-6 py-4 flex flex-col gap-1 max-h-[80vh] overflow-y-auto">
+          <Link href="/" onClick={() => setMobileOpen(false)} className="py-2 text-sm font-medium text-[#1F2937]">Home</Link>
+          <Link href="/about" onClick={() => setMobileOpen(false)} className="py-2 text-sm font-medium text-[#1F2937]">About</Link>
 
           {/* mobile services accordion */}
           <button
             onClick={() => setMobileServices(!mobileServices)}
-            className="flex items-center justify-between py-2 text-sm font-medium text-[#0F172A] w-full"
+            className="flex items-center justify-between py-2 text-sm font-medium text-[#1F2937] w-full"
           >
             Services
             <svg className={`w-3.5 h-3.5 transition-transform ${mobileServices ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -176,10 +183,10 @@ export default function Navbar() {
             </svg>
           </button>
           {mobileServices && (
-            <div className="pl-3 border-l-2 border-[#00BFA5]/30 flex flex-col gap-1 mb-1">
-              <Link href="/services" onClick={() => setMobileOpen(false)} className="py-1.5 text-xs font-semibold text-[#00BFA5]">All Services</Link>
+            <div className="pl-3 border-l-2 border-[#14B8A6]/30 flex flex-col gap-1 mb-1">
+              <Link href="/services" onClick={() => setMobileOpen(false)} className="py-1.5 text-xs font-semibold text-[#14B8A6]">All Services</Link>
               {serviceLinks.map((s) => (
-                <Link key={s.label} href={s.href} onClick={() => setMobileOpen(false)} className="py-1.5 text-sm text-[#475569] hover:text-[#00BFA5]">
+                <Link key={s.label} href={s.href} onClick={() => setMobileOpen(false)} className="py-1.5 text-sm text-[#475569] hover:text-[#14B8A6]">
                   {s.label}
                 </Link>
               ))}
@@ -189,7 +196,7 @@ export default function Navbar() {
           {/* mobile locations accordion */}
           <button
             onClick={() => setMobileLocations(!mobileLocations)}
-            className="flex items-center justify-between py-2 text-sm font-medium text-[#0F172A] w-full"
+            className="flex items-center justify-between py-2 text-sm font-medium text-[#1F2937] w-full"
           >
             Locations
             <svg className={`w-3.5 h-3.5 transition-transform ${mobileLocations ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -197,18 +204,18 @@ export default function Navbar() {
             </svg>
           </button>
           {mobileLocations && (
-            <div className="pl-3 border-l-2 border-[#00BFA5]/30 flex flex-col gap-1 mb-1">
-              <Link href="/locations" onClick={() => setMobileOpen(false)} className="py-1.5 text-xs font-semibold text-[#00BFA5]">All Locations</Link>
+            <div className="pl-3 border-l-2 border-[#14B8A6]/30 flex flex-col gap-1 mb-1">
+              <Link href="/locations" onClick={() => setMobileOpen(false)} className="py-1.5 text-xs font-semibold text-[#14B8A6]">All Locations</Link>
               {locations.map((loc) => (
-                <Link key={loc.slug} href={`/locations/${loc.slug}`} onClick={() => setMobileOpen(false)} className="py-1.5 text-sm text-[#475569] hover:text-[#00BFA5]">
+                <Link key={loc.slug} href={`/locations/${loc.slug}`} onClick={() => setMobileOpen(false)} className="py-1.5 text-sm text-[#475569] hover:text-[#14B8A6]">
                   {loc.name}{loc.isHQ ? " (HQ)" : ""}
                 </Link>
               ))}
             </div>
           )}
 
-          <Link href="/contact" onClick={() => setMobileOpen(false)} className="py-2 text-sm font-medium text-[#0F172A]">Contact</Link>
-          <Link href="/contact" onClick={() => setMobileOpen(false)} className="mt-2 px-5 py-2 rounded-lg bg-[#00BFA5] text-white text-sm font-semibold text-center">
+          <Link href="/contact" onClick={() => setMobileOpen(false)} className="py-2 text-sm font-medium text-[#1F2937]">Contact</Link>
+          <Link href="/contact" onClick={() => setMobileOpen(false)} className="mt-2 px-5 py-2 rounded-lg bg-[#14B8A6] text-white text-sm font-semibold text-center">
             Get A Quote
           </Link>
         </nav>

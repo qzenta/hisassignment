@@ -56,40 +56,34 @@ export default function FaqPage() {
     <>
       <Navbar />
       <main>
-        {/* HERO */}
-        <section
-          className="relative text-white py-24 px-6 overflow-hidden flex items-center justify-center min-h-[40vh]"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-[#1B3A6B]/82" />
-          <div className="relative max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Frequently Asked Questions</h1>
-            <p className="text-[#CBD5E1] text-lg">
+
+        {/* ── HERO — light grey band ── */}
+        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
+          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6]">FAQ</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-[#1A2E4A] tracking-tight">Frequently Asked Questions</h1>
+            <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl mx-auto">
               Everything you need to know about outsourcing your payroll with us.
             </p>
           </div>
         </section>
 
-        {/* FAQ ACCORDION */}
-        <section className="py-20 px-6 bg-[#F8FAFC]">
-          <div className="max-w-3xl mx-auto flex flex-col gap-4">
+        {/* ── ACCORDION ── */}
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-3xl mx-auto flex flex-col">
             {faqs.map((item, idx) => (
               <details
                 key={idx}
-                className="bg-white rounded-xl border border-[#E2E8F0] group open:border-[#00BFA5]/40 open:shadow-sm transition-all"
+                className="group border-b border-[#E5E7EB] last:border-b-0"
               >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none font-semibold text-[#0F172A] text-sm">
+                <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none font-semibold text-[#1A2E4A] text-sm leading-snug">
                   <span>{item.q}</span>
-                  <span className="shrink-0 w-5 h-5 rounded-full bg-[#00BFA5]/10 text-[#00BFA5] flex items-center justify-center text-lg leading-none select-none group-open:rotate-45 transition-transform">
-                    +
+                  <span className="shrink-0 w-7 h-7 rounded-full bg-[#14B8A6]/10 text-[#14B8A6] flex items-center justify-center font-bold text-base leading-none select-none transition-colors group-open:bg-[#14B8A6] group-open:text-white">
+                    <span className="group-open:hidden">+</span>
+                    <span className="hidden group-open:inline">−</span>
                   </span>
                 </summary>
-                <div className="px-6 pb-5 text-sm text-[#475569] leading-relaxed border-t border-[#E2E8F0] pt-4">
+                <div className="pb-6 text-sm text-[#374151] leading-relaxed">
                   {item.a}
                 </div>
               </details>
@@ -97,21 +91,22 @@ export default function FaqPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-16 px-6 bg-white border-t border-[#E2E8F0] text-center">
+        {/* ── STILL HAVE QUESTIONS ── */}
+        <section className="py-16 px-6 bg-[#F8FAFB] border-t border-[#E5E7EB] text-center">
           <div className="max-w-xl mx-auto flex flex-col items-center gap-5">
-            <h2 className="text-2xl font-bold text-[#0F172A]">Still have questions?</h2>
-            <p className="text-[#64748B]">
+            <h2 className="text-2xl font-bold text-[#1A2E4A]">Still have questions?</h2>
+            <p className="text-[#6B7280] leading-relaxed">
               Reach out directly — we respond within 24 hours on business days.
             </p>
             <Link
               href="/contact"
-              className="px-7 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm"
+              className="px-7 py-3.5 bg-[#14B8A6] text-white font-semibold rounded-lg hover:bg-[#0F9488] transition-colors text-sm"
             >
               Contact Us
             </Link>
           </div>
         </section>
+
       </main>
       <Footer />
     </>

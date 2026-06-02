@@ -1,15 +1,71 @@
 import Link from "next/link";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const differentiators = [
-  { title: "On Time", desc: "Reports and filings completed promptly — every submission, every cycle, without reminders." },
-  { title: "Experienced", desc: "Accurate, dependable payroll support backed by deep knowledge of South African compliance." },
-  { title: "Detail-Focused", desc: "Every figure is double-checked for clarity and precision before it leaves our desk." },
-  { title: "Transparent", desc: "Simple, easy-to-understand communication. No jargon, no surprises." },
-  { title: "Tailored Solutions", desc: "Customised services for your unique payroll needs — not a one-size-fits-all package." },
-  { title: "Supportive", desc: "Always available for queries, guidance, and help when your employees or SARS need answers." },
+  {
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    title: "On Time",
+    desc: "Reports and filings completed promptly — every submission, every cycle, without reminders.",
+  },
+  {
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+      </svg>
+    ),
+    title: "Experienced",
+    desc: "Accurate, dependable payroll support backed by deep knowledge of South African compliance.",
+  },
+  {
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    ),
+    title: "Detail-Focused",
+    desc: "Every figure is double-checked for clarity and precision before it leaves our desk.",
+  },
+  {
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      </svg>
+    ),
+    title: "Transparent",
+    desc: "Simple, easy-to-understand communication. No jargon, no surprises.",
+  },
+  {
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+      </svg>
+    ),
+    title: "Tailored Solutions",
+    desc: "Customised services for your unique payroll needs — not a one-size-fits-all package.",
+  },
+  {
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+    title: "Supportive",
+    desc: "Always available for queries, guidance, and help when your employees or SARS need answers.",
+  },
+];
+
+const skills = [
+  "PAYE & SARS",
+  "EMP201/EMP501",
+  "IRP5 Submissions",
+  "UIF & SDL",
+  "PoPIA Compliance",
+  "Payroll Consulting",
 ];
 
 export default function AboutPage() {
@@ -17,141 +73,128 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main>
-        {/* HERO */}
-        <section
-          className="relative text-white py-28 px-6 overflow-hidden flex items-center justify-center min-h-[50vh]"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-          }}
-        >
-          <div className="absolute inset-0 bg-[#1B3A6B]/80" />
-          <div className="relative max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">About HisAssignment</h1>
-            <p className="text-[#CBD5E1] text-lg">
-              A dedicated payroll partner for South African businesses of every size.
+
+        {/* ── HERO — light grey band ── */}
+        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
+          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6]">About Us</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-[#1A2E4A] tracking-tight">
+              A dedicated payroll partner for South African businesses
+            </h1>
+            <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl mx-auto">
+              Small team. Deep expertise. Every client works directly with the specialist who knows their payroll inside out.
             </p>
           </div>
         </section>
 
-        {/* STORY */}
-        <section className="py-20 px-6 bg-[#F8FAFC]">
+        {/* ── OUR STORY — split layout ── */}
+        <section className="bg-white py-20 px-6">
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
             <div className="flex flex-col gap-6">
-              <div className="text-xs font-semibold uppercase tracking-widest text-[#00BFA5]">Our Story</div>
-              <h2 className="text-3xl font-bold text-[#0F172A]">Your payroll department without the overhead</h2>
-              <p className="text-[#475569] leading-relaxed">
-                HisAssignment (Pty) Ltd was founded with one goal: to give South African businesses access to a professional, dedicated payroll service that grows with them — without the cost of a full-time employee.
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6]">Our Story</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1A2E4A] leading-tight">
+                Your payroll department without the overhead
+              </h2>
+              <p className="text-[#374151] leading-relaxed">
+                His Assignment Payroll Solutions was founded with one goal: to give South African businesses access to a professional, dedicated payroll service that grows with them — without the cost or complexity of a full-time employee.
               </p>
-              <p className="text-[#475569] leading-relaxed">
-                Based in Ferndale, Randburg, we specialise in payroll BPO and consulting for SMEs, NGOs, schools and private households across Gauteng. We understand local compliance — SARS, UIF, SDL and PoPIA — inside out.
+              <p className="text-[#374151] leading-relaxed">
+                Based in Ferndale, Randburg, we specialise in payroll BPO and consulting for SMEs, NGOs, schools, and private households across Gauteng. We understand local compliance — SARS, UIF, SDL, and PoPIA — inside out.
               </p>
-              <p className="text-[#475569] leading-relaxed">
-                We don&apos;t just process numbers. We act as your payroll department, handling every submission, query and year-end process so you never have to worry about it again.
+              <p className="text-[#374151] leading-relaxed">
+                We don&apos;t just process numbers. We act as your payroll department, handling every submission, query, and year-end process so you never have to worry about it again.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex self-start px-6 py-3 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm"
+                className="inline-flex self-start px-6 py-3 bg-[#14B8A6] text-white font-semibold rounded-lg hover:bg-[#0F9488] transition-colors text-sm"
               >
                 Work with us
               </Link>
             </div>
 
-            {/* stats */}
-            <div className="grid grid-cols-1 gap-6">
-              {[
-                { value: "100%", label: "SARS Compliant", desc: "Every submission meets SARS requirements." },
-                { value: "50+", label: "Clients Served", desc: "SMEs, NGOs, schools and households." },
-                { value: "24h", label: "Response Time", desc: "Every query answered within one business day." },
-              ].map((s) => (
-                <div key={s.label} className="bg-white rounded-xl p-6 border border-[#E2E8F0] flex items-center gap-5">
-                  <div className="text-4xl font-bold text-[#00BFA5] w-20 shrink-0">{s.value}</div>
-                  <div>
-                    <div className="font-semibold text-[#0F172A]">{s.label}</div>
-                    <div className="text-sm text-[#64748B] mt-0.5">{s.desc}</div>
-                  </div>
-                </div>
-              ))}
+            {/* right — image */}
+            <div className="rounded-2xl overflow-hidden shadow-lg aspect-[4/3]">
+              <img
+                src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80"
+                alt="South African business professionals"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </section>
 
-        {/* WHY CHOOSE US */}
-        <section className="py-20 px-6 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-dot-grid opacity-30 pointer-events-none" />
-          <div className="relative max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="text-xs font-semibold uppercase tracking-widest text-[#00BFA5] mb-3">Why choose us</div>
-              <h2 className="text-3xl font-bold text-[#0F172A]">This is why we should work together</h2>
+        {/* ── WHY CHOOSE US ── */}
+        <section className="py-20 px-6 bg-[#F8FAFB]">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-14">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6] mb-3">Why choose us</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1A2E4A]">This is why we should work together</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {differentiators.map((d) => (
-                <div key={d.title} className="bg-white rounded-xl p-6 border border-[#E2E8F0] border-l-4 border-l-[#00BFA5]/30 hover:border-l-[#00BFA5] hover:shadow-md transition-all duration-200 group">
-                  <div className="w-8 h-8 rounded-full bg-[#1B3A6B] flex items-center justify-center mb-4 group-hover:bg-[#00BFA5] transition-colors duration-200">
-                    <svg className="w-4 h-4 text-[#00BFA5] group-hover:text-white transition-colors duration-200" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
+                <div
+                  key={d.title}
+                  className="bg-white rounded-xl p-6 border border-[#E5E7EB] hover:shadow-md transition-shadow"
+                  style={{ borderLeft: "4px solid #14B8A6" }}
+                >
+                  <div className="w-9 h-9 rounded-lg bg-[#14B8A6]/10 text-[#14B8A6] flex items-center justify-center mb-4">
+                    {d.icon}
                   </div>
-                  <h3 className="font-semibold text-[#0F172A] mb-2">{d.title}</h3>
-                  <p className="text-sm text-[#64748B] leading-relaxed">{d.desc}</p>
+                  <h3 className="font-bold text-[#1A2E4A] mb-2">{d.title}</h3>
+                  <p className="text-sm text-[#6B7280] leading-relaxed">{d.desc}</p>
                 </div>
               ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Link href="/services" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#14B8A6] hover:text-[#0F9488] transition-colors">
+                View all our services →
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* TEAM */}
-        <section className="py-20 px-6 bg-[#F8FAFC]">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="text-xs font-semibold uppercase tracking-widest text-[#00BFA5] mb-3">Our Team</div>
-              <h2 className="text-3xl font-bold text-[#0F172A]">The people behind your payroll</h2>
-              <p className="mt-3 text-[#64748B] max-w-xl mx-auto">
-                Small team, deep expertise. Every client works directly with the people who know their payroll inside out.
-              </p>
+        {/* ── TEAM ── */}
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-14">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6] mb-3">Our Team</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1A2E4A]">The people behind your payroll</h2>
             </div>
 
-            <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_300px]">
+            <div className="bg-[#F8FAFB] rounded-2xl border border-[#E5E7EB] overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-[200px_1fr]">
 
-                {/* LEFT — bio content */}
-                <div className="p-8 md:p-10 flex flex-col gap-5 justify-center">
-                  <div>
-                    <h3 className="text-xl font-bold text-[#0F172A]">Nomusa Ngidi</h3>
-                    <p className="text-sm font-semibold text-[#00BFA5] mt-1">Founder &amp; Payroll Specialist · Information Officer</p>
+                {/* LEFT — avatar */}
+                <div className="flex flex-col items-center justify-center py-10 px-6 bg-[#1A2E4A]">
+                  {/* TODO: Replace NN avatar with headshot when Nomusa supplies photo */}
+                  <div className="w-[120px] h-[120px] rounded-full bg-[#1A2E4A] border-4 border-[#14B8A6]/40 flex items-center justify-center">
+                    <span className="text-3xl font-extrabold text-[#14B8A6] tracking-tight">NN</span>
                   </div>
-                  <p className="text-sm text-[#475569] leading-relaxed">
-                    Nomusa is a dedicated Payroll Specialist with hands-on experience across the full payroll function — from processing and compliance to year-end submissions. She has supported businesses, NGOs, schools and private households across the City of Johannesburg and broader Gauteng, building a reputation for accuracy, reliability and personal service.
+                </div>
+
+                {/* RIGHT — bio */}
+                <div className="p-8 md:p-10 flex flex-col gap-5">
+                  <div>
+                    <h3 className="text-xl font-bold text-[#1A2E4A]">Nomusa Ngidi</h3>
+                    <p className="text-sm font-semibold text-[#14B8A6] mt-1">Founder &amp; Payroll Specialist · Information Officer</p>
+                    <div className="mt-3 h-[2px] w-12 bg-[#14B8A6] rounded-full" />
+                  </div>
+
+                  <p className="text-[#374151] leading-relaxed text-sm">
+                    Nomusa Ngidi is the founder of His Assignment Payroll Solutions and the dedicated payroll specialist behind every client engagement. With hands-on experience across SME, NGO, school and household payrolls, she brings deep working knowledge of PAYE, UIF, SDL, EMP201/EMP501 submissions and IRP5 reconciliations to every mandate. As the company&apos;s designated Information Officer, Nomusa ensures all client data is processed, stored and protected in full compliance with the Protection of Personal Information Act (PoPIA). Her approach is methodical, detail-first and client-focused — ensuring every payroll cycle runs without error and every SARS obligation is met on time.
                   </p>
-                  <p className="text-sm text-[#475569] leading-relaxed">
-                    Her expertise spans PAYE, UIF, SDL, EMP201/EMP501 submissions and IRP5 reconciliations. As the company&apos;s designated Information Officer, she ensures all client data is handled in full compliance with PoPIA — giving clients confidence that their payroll is not only accurate, but secure.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {["PAYE & SARS", "EMP201 / EMP501", "IRP5 Submissions", "UIF & SDL", "PoPIA Compliance", "Payroll Consulting"].map((tag) => (
-                      <span key={tag} className="text-xs bg-[#00BFA5]/10 text-[#00BFA5] font-semibold px-2.5 py-1 rounded-full">
+
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {skills.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs bg-[#14B8A6]/10 text-[#14B8A6] font-semibold px-3 py-1.5 rounded-full"
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
-                </div>
-
-                {/* RIGHT — headshot */}
-                <div className="relative bg-[#F0F4FA] flex flex-col items-center justify-center gap-5 min-h-[300px] md:min-h-0 overflow-hidden">
-                  <div className="w-40 h-40 rounded-full overflow-hidden shadow-xl ring-4 ring-white">
-                    <Image
-                      src="/nomusa.png"
-                      alt="Nomusa Ngidi — Founder & Payroll Specialist"
-                      width={160}
-                      height={160}
-                      className="object-cover w-full h-full object-top"
-                    />
-                  </div>
-                  <div className="text-center px-6">
-                    <p className="text-sm font-bold text-[#0F172A]">Nomusa Ngidi</p>
-                    <p className="text-xs text-[#64748B] mt-0.5">Founder &amp; Payroll Specialist</p>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-16 h-16 bg-[#00BFA5]/20 rounded-tl-3xl" />
                 </div>
 
               </div>
@@ -159,23 +202,23 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="relative py-20 px-6 bg-[#1B3A6B] text-white text-center overflow-hidden">
-          <div className="absolute inset-0 bg-dot-grid-light opacity-25 pointer-events-none" />
-          <div className="absolute inset-0 bg-stripe-subtle pointer-events-none" />
+        {/* ── CTA BAND ── */}
+        <section className="relative bg-[#1A2E4A] text-white py-20 px-6 text-center overflow-hidden">
+          <div className="absolute inset-0 bg-dot-grid-light opacity-10 pointer-events-none" />
           <div className="relative max-w-2xl mx-auto flex flex-col items-center gap-6">
-            <h2 className="text-3xl font-bold">Ready to hand over your payroll?</h2>
-            <p className="text-[#CBD5E1]">
+            <h2 className="text-3xl md:text-4xl font-bold">Ready to hand over your payroll?</h2>
+            <p className="text-[#94A3B8] text-lg leading-relaxed">
               Start with a free consultation. We&apos;ll understand your needs and send you a clear, no-obligation quote.
             </p>
             <Link
               href="/contact"
-              className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm shadow-lg shadow-[#00BFA5]/25"
+              className="mt-2 px-8 py-4 bg-[#14B8A6] text-white font-semibold rounded-lg hover:bg-[#0F9488] transition-colors text-sm shadow-lg"
             >
               Get A Free Quote
             </Link>
           </div>
         </section>
+
       </main>
       <Footer />
     </>

@@ -15,36 +15,29 @@ export default function LocationsPage() {
     <>
       <Navbar />
       <main>
-        {/* HERO */}
-        <section
-          className="relative bg-[#1B3A6B] text-white py-24 px-6 overflow-hidden"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-[#1B3A6B]/80" />
-          <div className="relative max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <div className="inline-flex self-center items-center gap-2 bg-[#00BFA5]/15 text-[#00BFA5] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border border-[#00BFA5]/30">
+
+        {/* ── HERO — light grey band ── */}
+        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
+          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
+            <div className="inline-flex self-center items-center gap-2 bg-[#14B8A6]/10 text-[#14B8A6] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border border-[#14B8A6]/30">
               Serving All Of Gauteng
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#1A2E4A] tracking-tight">
               Professional payroll. Wherever you are.
             </h1>
-            <p className="text-[#CBD5E1] text-lg">
+            <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl mx-auto">
               His Assignment serves businesses across Gauteng — from the East Rand to Pretoria. Remote-first, with in-person consultations available at our Randburg HQ.
             </p>
           </div>
         </section>
 
-        {/* LOCATIONS GRID */}
-        <section className="py-20 px-6 bg-[#F8FAFC]">
+        {/* ── LOCATIONS GRID ── */}
+        <section className="py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-[#0F172A]">Areas we serve</h2>
-              <p className="mt-3 text-[#64748B]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6] mb-3">Coverage</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1A2E4A]">Areas we serve</h2>
+              <p className="mt-4 text-[#6B7280]">
                 Click your area to see how we support businesses near you.
               </p>
             </div>
@@ -54,7 +47,8 @@ export default function LocationsPage() {
                 <Link
                   key={loc.slug}
                   href={`/locations/${loc.slug}`}
-                  className="group bg-white rounded-xl border border-[#E2E8F0] overflow-hidden hover:border-[#00BFA5]/50 hover:shadow-lg transition-all"
+                  className="group bg-white rounded-xl border border-[#E5E7EB] overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
+                  style={{ borderLeft: "4px solid #14B8A6" }}
                 >
                   <div className="relative h-44 overflow-hidden">
                     <Image
@@ -64,18 +58,18 @@ export default function LocationsPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1B3A6B]/70 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A2E4A]/70 to-transparent" />
                     <div className="absolute bottom-3 left-4 flex items-center gap-2">
                       <span className="text-white font-bold text-lg">{loc.name}</span>
                       {loc.isHQ && (
-                        <span className="text-[10px] bg-[#00BFA5] text-white px-2 py-0.5 rounded font-bold">HQ</span>
+                        <span className="text-[10px] bg-[#14B8A6] text-white px-2 py-0.5 rounded font-bold">HQ</span>
                       )}
                     </div>
                   </div>
                   <div className="p-5">
-                    <p className="text-xs text-[#00BFA5] font-semibold uppercase tracking-wider mb-1">{loc.region}</p>
-                    <p className="text-sm text-[#475569] leading-relaxed">{loc.description}</p>
-                    <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#00BFA5] group-hover:underline">
+                    <p className="text-xs text-[#14B8A6] font-semibold uppercase tracking-wider mb-2">{loc.region}</p>
+                    <p className="text-sm text-[#374151] leading-relaxed">{loc.description}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#14B8A6] group-hover:gap-2 transition-all">
                       Learn more →
                     </span>
                   </div>
@@ -85,44 +79,73 @@ export default function LocationsPage() {
           </div>
         </section>
 
-        {/* HOW WE WORK */}
-        <section className="py-20 px-6 bg-white">
+        {/* ── HOW WE WORK ── */}
+        <section className="py-20 px-6 bg-[#F8FAFB] border-t border-[#E5E7EB]">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-[#0F172A] mb-4">Remote-first. Available everywhere.</h2>
-            <p className="text-[#64748B] max-w-2xl mx-auto mb-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6] mb-3">Our reach</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2E4A] mb-4">Remote-first. Available everywhere.</h2>
+            <p className="text-[#6B7280] max-w-2xl mx-auto mb-12 leading-relaxed">
               All our payroll services are delivered remotely — securely and efficiently. No need for in-person meetings unless you prefer them. Our Randburg HQ is always available for face-to-face consultations.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
-                { icon: "📧", title: "Email & Portal", desc: "Submit payroll data securely via email or our dedicated portal." },
-                { icon: "📞", title: "Phone & WhatsApp", desc: "Direct line to your consultant — queries answered same day." },
-                { icon: "🏢", title: "In-Person (Randburg)", desc: "Visit our Ferndale office for consultations and onboarding sessions." },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  ),
+                  title: "Email & Portal",
+                  desc: "Submit payroll data securely via email or our dedicated portal.",
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  ),
+                  title: "Phone & WhatsApp",
+                  desc: "Direct line to your consultant — queries answered same day.",
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  ),
+                  title: "In-Person (Randburg)",
+                  desc: "Visit our Ferndale office for consultations and onboarding sessions.",
+                },
               ].map((item) => (
-                <div key={item.title} className="bg-[#F8FAFC] rounded-xl p-6 border border-[#E2E8F0] text-left">
-                  <div className="text-2xl mb-3">{item.icon}</div>
-                  <h3 className="font-semibold text-[#0F172A] mb-1">{item.title}</h3>
-                  <p className="text-sm text-[#64748B]">{item.desc}</p>
+                <div key={item.title} className="bg-white rounded-xl p-6 border border-[#E5E7EB] text-left">
+                  <div className="w-11 h-11 rounded-lg bg-[#14B8A6]/10 text-[#14B8A6] flex items-center justify-center mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="font-bold text-[#1A2E4A] mb-2">{item.title}</h3>
+                  <p className="text-sm text-[#6B7280] leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 px-6 bg-[#1B3A6B] text-white text-center">
-          <div className="max-w-2xl mx-auto flex flex-col items-center gap-6">
-            <h2 className="text-3xl font-bold">Don&apos;t see your area?</h2>
-            <p className="text-[#CBD5E1]">
+        {/* ── CTA BAND ── */}
+        <section className="relative bg-[#1A2E4A] text-white py-20 px-6 text-center overflow-hidden">
+          <div className="absolute inset-0 bg-dot-grid-light opacity-10 pointer-events-none" />
+          <div className="relative max-w-2xl mx-auto flex flex-col items-center gap-6">
+            <h2 className="text-3xl md:text-4xl font-bold">Don&apos;t see your area?</h2>
+            <p className="text-[#94A3B8] text-lg leading-relaxed">
               We serve businesses across all of Gauteng and beyond. Get in touch — chances are we already work with businesses near you.
             </p>
             <Link
               href="/contact"
-              className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm"
+              className="mt-2 px-8 py-4 bg-[#14B8A6] text-white font-semibold rounded-lg hover:bg-[#0F9488] transition-colors text-sm shadow-lg"
             >
               Get A Free Quote
             </Link>
           </div>
         </section>
+
       </main>
       <Footer />
     </>
