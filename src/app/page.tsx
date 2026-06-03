@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HeroSlider from "@/components/HeroSlider";
 import PartnersMarquee from "@/components/PartnersMarquee";
 
 const services = [
@@ -93,46 +94,8 @@ export default function HomePage() {
       <Navbar />
       <main>
 
-        {/* ── HERO — split layout ── */}
-        <section className="relative bg-[#1A2E4A] overflow-hidden min-h-[70vh] flex items-center">
-          {/* right-side image panel */}
-          <div
-            className="hidden lg:block absolute right-0 top-0 bottom-0 w-[48%] bg-cover bg-center"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80')" }}
-          >
-            <div className="absolute inset-0 bg-[#1A2E4A]/55" />
-          </div>
-
-          {/* left content */}
-          <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-20 lg:py-28">
-            <div className="lg:max-w-[52%] flex flex-col gap-6">
-              <div className="inline-flex self-start items-center gap-2 bg-[#14B8A6]/15 text-[#14B8A6] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border border-[#14B8A6]/30">
-                SARS Registered · PoPIA Compliant
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-tight tracking-tight text-white">
-                Outsource your payroll.<br />
-                <span className="text-[#14B8A6]">Reclaim your time.</span>
-              </h1>
-              <p className="text-lg text-[#94A3B8] max-w-lg leading-relaxed">
-                Professional payroll management for South African SMEs, NGOs and schools. SARS compliant. PoPIA secure. Personally managed.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-2">
-                <Link
-                  href="/contact"
-                  className="px-8 py-3.5 bg-[#14B8A6] text-white font-semibold rounded-lg hover:bg-[#0F9488] transition-colors text-sm text-center"
-                >
-                  Get A Free Quote
-                </Link>
-                <Link
-                  href="/services"
-                  className="px-8 py-3.5 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-sm text-center"
-                >
-                  View Services
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* ── HERO SLIDER — full-bleed, 3 slides ── */}
+        <HeroSlider />
 
         {/* ── TRUST STATS BAR ── */}
         <section className="bg-white border-b border-[#E5E7EB] py-5 px-6">

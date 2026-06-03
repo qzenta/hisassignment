@@ -8,12 +8,7 @@ const slides = [
     id: 1,
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80",
     badge: "SARS Registered · PoPIA Compliant",
-    heading: (
-      <>
-        Outsource your payroll.<br />
-        <span className="text-[#00BFA5]">Reclaim your time.</span>
-      </>
-    ),
+    heading: "Outsource Your Payroll.\nReclaim Your Time.",
     sub: "Professional payroll management for South African SMEs, NGOs and schools. SARS compliant. PoPIA secure. Personally managed.",
     cta1: { label: "Get A Free Quote", href: "/contact" },
     cta2: { label: "View Services", href: "/services" },
@@ -22,12 +17,7 @@ const slides = [
     id: 2,
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1920&q=80",
     badge: "EMP201 · EMP501 · IRP5 · IT3(a)",
-    heading: (
-      <>
-        SARS compliant.<br />
-        <span className="text-[#00BFA5]">Every submission. On time.</span>
-      </>
-    ),
+    heading: "SARS Compliant.\nEvery Submission. On Time.",
     sub: "We handle every statutory filing — so you never face penalties, late submissions, or SARS correspondence again.",
     cta1: { label: "See How It Works", href: "/services" },
     cta2: { label: "Talk To Us", href: "/contact" },
@@ -36,12 +26,7 @@ const slides = [
     id: 3,
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80",
     badge: "Serving All Of Gauteng",
-    heading: (
-      <>
-        Your dedicated payroll department.<br />
-        <span className="text-[#00BFA5]">Without the overhead.</span>
-      </>
-    ),
+    heading: "Your Dedicated\nPayroll Department.",
     sub: "Serving businesses across Randburg, Sandton, Johannesburg, Pretoria, Germiston, Boksburg and beyond.",
     cta1: { label: "Find Your Location", href: "/locations" },
     cta2: { label: "Get A Quote", href: "/contact" },
@@ -50,28 +35,30 @@ const slides = [
 
 export default function HeroSlider() {
   const [active, setActive] = useState(0);
-  const [fading, setFading] = useState(false);
+  const [transitioning, setTransitioning] = useState(false);
 
   const goTo = useCallback((idx: number) => {
-    setFading(true);
+    if (transitioning) return;
+    setTransitioning(true);
     setTimeout(() => {
       setActive(idx);
-      setFading(false);
-    }, 300);
-  }, []);
+      setTransitioning(false);
+    }, 400);
+  }, [transitioning]);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      goTo((active + 1) % slides.length);
+      setActive((prev) => (prev + 1) % slides.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, [active, goTo]);
+  }, []);
 
   const slide = slides[active];
 
   return (
-    <section className="relative min-h-[72vh] flex items-center justify-center overflow-hidden bg-[#1B3A6B]">
-      {/* background image */}
+    <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-[#1A2E4A]">
+
+      {/* background images — crossfade */}
       {slides.map((s, i) => (
         <div
           key={s.id}
@@ -84,40 +71,52 @@ export default function HeroSlider() {
       ))}
 
       {/* dark overlay */}
-      <div className="absolute inset-0 bg-[#1B3A6B]/75" />
+      <div className="absolute inset-0 bg-[#0D1B2E]/65" />
+
+      {/* bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0D1B2E]/40 to-transparent" />
 
       {/* content */}
       <div
-        className="relative z-10 max-w-4xl mx-auto px-6 text-white text-center flex flex-col items-center gap-6"
-        style={{ opacity: fading ? 0 : 1, transition: "opacity 0.3s ease" }}
+        className="relative z-10 max-w-5xl mx-auto px-6 text-white text-center flex flex-col items-center gap-7"
+        style={{ opacity: transitioning ? 0 : 1, transition: "opacity 0.4s ease" }}
       >
-        <div className="inline-flex items-center gap-2 bg-[#00BFA5]/15 text-[#00BFA5] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border border-[#00BFA5]/30">
+        {/* badge */}
+        <div className="inline-flex items-center gap-2 bg-[#14B8A6]/20 text-[#14B8A6] text-xs font-bold uppercase tracking-[0.2em] px-5 py-2.5 rounded-full border border-[#14B8A6]/40">
           {slide.badge}
         </div>
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-          {slide.heading}
+        {/* heading — large, bold, Accace-style */}
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+          {slide.heading.split("\n").map((line, i) => (
+            <span key={i} className={i === 1 ? "block text-[#14B8A6]" : "block"}>
+              {line}
+            </span>
+          ))}
         </h1>
 
-        <p className="text-lg text-[#CBD5E1] max-w-2xl">{slide.sub}</p>
+        <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed font-medium">
+          {slide.sub}
+        </p>
 
+        {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 mt-2">
           <Link
             href={slide.cta1.href}
-            className="px-8 py-3.5 bg-[#00BFA5] text-white font-semibold rounded-lg hover:bg-[#00a892] transition-colors text-sm"
+            className="px-9 py-4 bg-[#14B8A6] text-white font-bold rounded-lg hover:bg-[#0F9488] transition-colors text-sm tracking-wide uppercase"
           >
             {slide.cta1.label}
           </Link>
           <Link
             href={slide.cta2.href}
-            className="px-8 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-sm"
+            className="px-9 py-4 border-2 border-white/40 text-white font-bold rounded-lg hover:bg-white/10 hover:border-white/70 transition-all text-sm tracking-wide uppercase"
           >
             {slide.cta2.label}
           </Link>
         </div>
 
-        {/* dots */}
-        <div className="flex gap-2 mt-4">
+        {/* dot indicators */}
+        <div className="flex gap-2.5 mt-4">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -125,8 +124,8 @@ export default function HeroSlider() {
               aria-label={`Go to slide ${i + 1}`}
               className={`rounded-full transition-all duration-300 ${
                 i === active
-                  ? "bg-[#00BFA5] w-6 h-2"
-                  : "bg-white/40 w-2 h-2 hover:bg-white/70"
+                  ? "bg-[#14B8A6] w-8 h-2.5"
+                  : "bg-white/40 w-2.5 h-2.5 hover:bg-white/70"
               }`}
             />
           ))}
@@ -137,21 +136,26 @@ export default function HeroSlider() {
       <button
         onClick={() => goTo((active - 1 + slides.length) % slides.length)}
         aria-label="Previous slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center text-white transition-all"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
       <button
         onClick={() => goTo((active + 1) % slides.length)}
         aria-label="Next slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center text-white transition-all"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
+
+      {/* slide counter */}
+      <div className="absolute bottom-8 right-8 z-10 text-white/50 text-xs font-bold tracking-widest uppercase">
+        {String(active + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+      </div>
     </section>
   );
 }
