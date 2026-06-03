@@ -56,7 +56,7 @@ export default function HeroSlider() {
   const slide = slides[active];
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-[#1A2E4A]" style={{ height: "calc(100vh - 4rem)" }}>
+    <section className="relative flex items-center justify-center overflow-hidden bg-[#1A2E4A]" style={{ height: "52vh", minHeight: "380px", maxHeight: "560px" }}>
 
       {/* background images — crossfade */}
       {slides.map((s, i) => (
@@ -78,7 +78,7 @@ export default function HeroSlider() {
 
       {/* content */}
       <div
-        className="relative z-10 max-w-5xl mx-auto px-6 text-white text-center flex flex-col items-center gap-7"
+        className="relative z-10 max-w-5xl mx-auto px-6 text-white text-center flex flex-col items-center gap-4"
         style={{ opacity: transitioning ? 0 : 1, transition: "opacity 0.4s ease" }}
       >
         {/* badge */}
@@ -87,7 +87,7 @@ export default function HeroSlider() {
         </div>
 
         {/* heading — large, bold, Accace-style */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
           {slide.heading.split("\n").map((line, i) => (
             <span key={i} className={i === 1 ? "block text-[#14B8A6]" : "block"}>
               {line}
@@ -95,7 +95,7 @@ export default function HeroSlider() {
           ))}
         </h1>
 
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed font-medium">
+        <p className="text-sm md:text-base text-white/80 max-w-xl leading-relaxed font-medium">
           {slide.sub}
         </p>
 
