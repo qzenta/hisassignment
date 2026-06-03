@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 
 const serviceOptions = [
   "Full payroll administration",
@@ -66,16 +67,12 @@ export default function ContactPage() {
       <Navbar />
       <main>
 
-        {/* ── HERO — light grey band ── */}
-        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6]">Get In Touch</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A2E4A] tracking-tight">Get A Free Quote</h1>
-            <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl mx-auto">
-              Tell us about your payroll needs and we&apos;ll send a clear, tailored quote within 24 hours.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          label="Get In Touch"
+          title="Get A Free Quote"
+          sub="Tell us about your payroll needs and we'll send a clear, tailored quote within 24 hours."
+          image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80"
+        />
 
         {/* ── CONTACT COLUMNS ── */}
         <section className="py-20 px-6 bg-white">
@@ -246,6 +243,26 @@ export default function ContactPage() {
                   </button>
                 </form>
               )}
+            </div>
+          </div>
+        </section>
+
+        {/* ── GOOGLE MAP ── */}
+        <section className="bg-[#F8FAFB] border-t border-[#E5E7EB]">
+          <div className="max-w-5xl mx-auto px-6 py-10">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#14B8A6] mb-4">Find Us</p>
+            <h2 className="text-xl font-extrabold text-[#1A2E4A] mb-6">396 Elgin Street, Ferndale, Randburg</h2>
+            <div className="rounded-2xl overflow-hidden border border-[#E5E7EB] shadow-sm" style={{ height: "380px" }}>
+              <iframe
+                src="https://maps.google.com/maps?q=396+Elgin+Street,+Ferndale,+Randburg,+Gauteng,+2194&output=embed&z=15"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="His Assignment Payroll Solutions — 396 Elgin Street, Ferndale, Randburg"
+              />
             </div>
           </div>
         </section>

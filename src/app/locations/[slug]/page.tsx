@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { locations, getLocation } from "@/lib/locations";
+import PageHero from "@/components/PageHero";
 
 export async function generateStaticParams() {
   return locations.map((loc) => ({ slug: loc.slug }));
@@ -40,26 +41,12 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       <Navbar />
       <main>
 
-        {/* ── HERO — light grey band ── */}
-        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <div className="inline-flex self-center items-center gap-2 bg-[#14B8A6]/10 text-[#14B8A6] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border border-[#14B8A6]/30">
-              {loc.region}{loc.isHQ ? " · Headquarters" : " · Service Area"}
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A2E4A] tracking-tight">
-              Payroll Services in {loc.name}
-            </h1>
-            <p className="text-[#6B7280] text-lg leading-relaxed max-w-2xl mx-auto">{loc.description}</p>
-            <div className="flex justify-center mt-2">
-              <Link
-                href="/contact"
-                className="px-8 py-3.5 bg-[#14B8A6] text-white font-semibold rounded-lg hover:bg-[#0F9488] transition-colors text-sm"
-              >
-                Get A Free Quote
-              </Link>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          label={`${loc.region}${loc.isHQ ? " · Headquarters" : " · Service Area"}`}
+          title={`Payroll Services in ${loc.name}`}
+          sub={loc.description}
+          image={loc.image}
+        />
 
         {/* ── AREA PHOTO + DETAILS ── */}
         <section className="py-20 px-6 bg-white">

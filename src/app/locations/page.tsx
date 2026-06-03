@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { locations } from "@/lib/locations";
 
 export const metadata = {
@@ -16,20 +17,12 @@ export default function LocationsPage() {
       <Navbar />
       <main>
 
-        {/* ── HERO — light grey band ── */}
-        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <div className="inline-flex self-center items-center gap-2 bg-[#14B8A6]/10 text-[#14B8A6] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border border-[#14B8A6]/30">
-              Serving All Of Gauteng
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A2E4A] tracking-tight">
-              Professional payroll. Wherever you are.
-            </h1>
-            <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl mx-auto">
-              His Assignment serves businesses across Gauteng — from the East Rand to Pretoria. Remote-first, with in-person consultations available at our Randburg HQ.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          label="Serving All Of Gauteng"
+          title="Professional Payroll. Wherever You Are."
+          sub="His Assignment serves businesses across Gauteng — from the East Rand to Pretoria. Remote-first, with in-person consultations available at our Randburg HQ."
+          image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
+        />
 
         {/* ── LOCATIONS GRID ── */}
         <section className="py-20 px-6 bg-white">

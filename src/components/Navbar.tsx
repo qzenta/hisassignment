@@ -6,14 +6,14 @@ import Logo from "./Logo";
 import { locations } from "@/lib/locations";
 
 const serviceLinks = [
-  { label: "Full Payroll Administration", href: "/services" },
-  { label: "Payroll Outsourcing", href: "/services" },
-  { label: "SARS Compliance Management", href: "/services" },
-  { label: "PAYE, UIF & SDL Administration", href: "/services" },
-  { label: "Leave Management", href: "/services" },
-  { label: "Year-End Tax Certificates", href: "/services" },
-  { label: "Payroll Reporting", href: "/services" },
-  { label: "Payroll Consulting", href: "/services" },
+  { label: "Payroll Processing", href: "/services/payroll-processing" },
+  { label: "Payroll Outsourcing", href: "/services/payroll-outsourcing" },
+  { label: "SARS Compliance Management", href: "/services/sars-compliance-management" },
+  { label: "PAYE, UIF & SDL Administration", href: "/services/paye-uif-sdl-administration" },
+  { label: "Leave Management", href: "/services/leave-management" },
+  { label: "Year-End Tax Certificates", href: "/services/year-end-tax-certificates" },
+  { label: "Payroll Reporting", href: "/services/payroll-reporting" },
+  { label: "Payroll Consulting", href: "/services/payroll-consulting" },
 ];
 
 function useDropdown() {

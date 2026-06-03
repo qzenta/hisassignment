@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -57,16 +58,12 @@ export default function FaqPage() {
       <Navbar />
       <main>
 
-        {/* ── HERO — light grey band ── */}
-        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6]">FAQ</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A2E4A] tracking-tight">Frequently Asked Questions</h1>
-            <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl mx-auto">
-              Everything you need to know about outsourcing your payroll with us.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          label="FAQ"
+          title="Frequently Asked Questions"
+          sub="Everything you need to know about outsourcing your payroll with us."
+          image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80"
+        />
 
         {/* ── ACCORDION ── */}
         <section className="py-20 px-6 bg-white">

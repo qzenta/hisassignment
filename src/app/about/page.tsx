@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 
 const differentiators = [
   {
@@ -74,18 +75,12 @@ export default function AboutPage() {
       <Navbar />
       <main>
 
-        {/* ── HERO — light grey band ── */}
-        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6]">About Us</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A2E4A] tracking-tight">
-              A dedicated payroll partner for South African businesses
-            </h1>
-            <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl mx-auto">
-              Small team. Deep expertise. Every client works directly with the specialist who knows their payroll inside out.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          label="About Us"
+          title="A Dedicated Payroll Partner for South African Businesses"
+          sub="Small team. Deep expertise. Every client works directly with the specialist who knows their payroll inside out."
+          image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80"
+        />
 
         {/* ── OUR STORY — split layout ── */}
         <section className="bg-white py-20 px-6">

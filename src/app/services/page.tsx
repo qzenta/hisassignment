@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import { services as serviceData } from "@/lib/services";
 
 const services = [
   {
@@ -188,16 +190,12 @@ export default function ServicesPage() {
       <Navbar />
       <main>
 
-        {/* ── HERO — light grey band ── */}
-        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#14B8A6]">Services</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A2E4A] tracking-tight">Everything payroll. Nothing else.</h1>
-            <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl mx-auto">
-              We specialise in one discipline and do it exceptionally well — so you can focus on running your business.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          label="Our Services"
+          title="Everything Payroll. Nothing Else."
+          sub="We specialise in one discipline and do it exceptionally well — so you can focus on running your business."
+          image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80"
+        />
 
         {/* ── INTRO PARAGRAPH ── */}
         <section className="bg-white py-14 px-6 border-b border-[#E5E7EB]">
@@ -209,7 +207,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ── SERVICE BLOCKS — alternating bands ── */}
-        {services.map((s, i) => (
+        {serviceData.map((s, i) => (
           <section
             key={s.title}
             className={`py-16 px-6 ${i % 2 === 0 ? "bg-white" : "bg-[#F8FAFB]"}`}
@@ -244,12 +242,20 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#14B8A6] hover:text-[#0F9488] transition-colors"
-              >
-                Get a quote →
-              </Link>
+              <div className="flex gap-4">
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="inline-flex items-center gap-1.5 text-sm font-bold text-[#14B8A6] hover:text-[#0F9488] transition-colors"
+                >
+                  Full details →
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1A2E4A] hover:text-[#14B8A6] transition-colors"
+                >
+                  Get a quote →
+                </Link>
+              </div>
             </div>
           </section>
         ))}

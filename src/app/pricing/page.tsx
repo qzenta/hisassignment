@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -103,18 +104,12 @@ export default function PricingPage() {
       <Navbar />
       <main>
 
-        {/* ── HERO ── */}
-        <section className="bg-[#F8FAFB] border-b border-[#E5E7EB] py-16 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#14B8A6]">Pricing</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-[#1A2E4A] tracking-tight">
-              Indicative Pricing
-            </h1>
-            <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl mx-auto">
-              Every business is different — these are starting points. All prices exclude VAT. Contact us for a tailored quote.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          label="Pricing"
+          title="Indicative Pricing"
+          sub="Every business is different — these are starting points. All prices exclude VAT. Contact us for a tailored quote."
+          image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1920&q=80"
+        />
 
         {/* ── PRICING CARDS ── */}
         <section className="py-20 px-6 bg-white">
