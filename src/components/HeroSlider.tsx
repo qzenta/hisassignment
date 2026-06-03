@@ -56,7 +56,7 @@ export default function HeroSlider() {
   const slide = slides[active];
 
   return (
-    <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-[#1A2E4A]">
+    <section className="relative flex items-center justify-center overflow-hidden bg-[#1A2E4A]" style={{ height: "calc(100vh - 4rem)" }}>
 
       {/* background images — crossfade */}
       {slides.map((s, i) => (
