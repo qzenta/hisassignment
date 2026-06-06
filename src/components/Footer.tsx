@@ -105,6 +105,8 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-[#CBD5E1] transition-colors">Terms</Link>
             <Link href="/privacy" className="hover:text-[#CBD5E1] transition-colors">Privacy</Link>
             <Link href="/cookie" className="hover:text-[#CBD5E1] transition-colors">Cookie Policy</Link>
+            <span className="text-[#64748B]">·</span>
+            <a href="https://qzenta.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#CBD5E1] transition-colors">Hosted by Qzenta</a>
           </div>
         </div>
       </div>
