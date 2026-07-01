@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
@@ -162,9 +163,14 @@ export default function AboutPage() {
 
                 {/* LEFT — avatar */}
                 <div className="flex flex-col items-center justify-center py-10 px-6 bg-[#1A2E4A]">
-                  {/* TODO: Replace NN avatar with headshot when Nomusa supplies photo */}
-                  <div className="w-[120px] h-[120px] rounded-full bg-[#1A2E4A] border-4 border-[#14B8A6]/40 flex items-center justify-center">
-                    <span className="text-3xl font-extrabold text-[#14B8A6] tracking-tight">NN</span>
+                  <div className="relative w-[120px] h-[120px] rounded-full overflow-hidden border-4 border-[#14B8A6]/40">
+                    <Image
+                      src="/nomusa.png"
+                      alt="Nomusa Ngidi"
+                      fill
+                      className="object-cover"
+                      sizes="120px"
+                    />
                   </div>
                 </div>
 
