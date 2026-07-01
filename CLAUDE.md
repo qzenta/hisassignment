@@ -16,9 +16,10 @@
 - Email: Brevo fully active ✅ — BREVO_API_KEY, CONTACT_TO_EMAIL, BREVO_LIST_ID=7 set in Vercel
 - Brand: See CONTENT.md for extracted copy
 
-## Brand (Refined — Session 4 redesign)
-- Logo: "ha" monogram (teal "h" + navy "a") + "HIS ASSIGNMENT" wordmark + "PAYROLL PERFECTED" tagline
-- Logo file: /public/logo.svg (client to supply hi-res PNG/SVG for swap)
+## Brand (Refined — Session 4 redesign; logo updated Session 5)
+- Logo: 3D "ha" icon mark (client-supplied render, bg-removed + cropped) + live "HIS ASSIGNMENT" text wordmark + "PAYROLL PERFECTED" tagline
+- Logo icon file: /public/ha-icon.png — rendered via Logo.tsx (Image component, sized `Math.round(64 * s)` × `Math.round(60 * s)`)
+- Old flat SVG monogram removed from Logo.tsx (logo.svg file still in /public/, now unused — safe to delete in a future cleanup)
 - Navy: #1A2E4A | Teal: #14B8A6 | Teal dark: #0F9488 | Body text: #1F2937 | Caption: #6B7280
 - Section bands: #F8FAFB | White: #FFFFFF | Border: #E5E7EB
 
@@ -31,13 +32,13 @@
 - CTA bands: dark navy (#1A2E4A) with teal button
 - FAQ accordion: details/summary, bottom border only, teal +/- toggle
 - Pricing: 3-column (Starter/Growth/Enterprise), Growth has ring-2 teal + Most Popular badge
-- Team card: navy left panel with NN initials, bio right, teal skill pills
+- Team card (Session 5): large real headshot fills full left column (object-cover, no more NN initials circle), bio + skill pills right, social icon row (Facebook/X/LinkedIn) next to name — icons disabled/greyed pending real profile links
 
 ## Project Structure
 - src/app/          — Next.js App Router pages
 - src/components/   — Reusable UI components (Navbar, Footer, Logo, PartnersMarquee, HeroSlider)
 - src/lib/          — Utilities (locations.ts)
-- public/           — Static assets (logo.svg, partner SVGs)
+- public/           — Static assets (ha-icon.png [live logo mark], nomusa.png [team headshot], legacy logo.svg [unused], partner SVGs)
 - CONTENT.md        — All extracted site copy and branding (source of truth)
 
 ## Confirmed — Never Ask Again
@@ -49,15 +50,24 @@
 - Brevo already active — do not re-configure
 - HeroSlider.tsx exists but is no longer used — home hero is inline in page.tsx
 - Nomusa bio text is finalised — do not change without client approval
+- Logo icon (ha-icon.png) and Nomusa headshot (nomusa.png) are done — do not re-ask, see Session 5 below
+- No sitemap.xml, robots.txt, canonical tags, OG tags, or JSON-LD structured data exist anywhere on the site — confirmed via full audit 1 July 2026, not yet implemented
 
-## Outstanding (as at Session 4)
-- Logo: client to supply flat/transparent PNG or SVG → replace SVG monogram in Logo.tsx
+## Outstanding (as at Session 5, 1 July 2026)
 - Testimonials: Thabo M., Nomusa V., Susan R. are placeholders — client to supply real ones
-- Bio photo: NN avatar is placeholder — Nomusa to supply headshot
-- Social links: disabled — Nomusa to supply Facebook/LinkedIn/X profiles
+- Social links: icons now visible on About team card + footer, still disabled — Nomusa to supply real Facebook/X/LinkedIn profile URLs
 - GitHub auto-deploy: blocked — Vercel Hobby + org repo; transfer repo OR upgrade Pro
 - Location images: should be updated to city/area aerial photos (search "[area] South Africa aerial" on Unsplash)
 - Billing: R300/month catch-up invoice URGENT — not yet issued
+- **SEO backlog from 1 July audit (not yet implemented, next session):**
+  - Add sitemap.xml + robots.txt (both currently 404)
+  - Fix duplicate title/meta description on Home, /services, /about, /contact (all inherit the same root layout default)
+  - Add LocalBusiness/Organization JSON-LD structured data (currently zero anywhere on site)
+  - Add Open Graph + Twitter card meta tags sitewide (currently zero anywhere on site)
+  - Pick canonical host (www vs apex — both serve identical 200 content, no redirect, no canonical tag) and redirect the other
+  - Verify Google Search Console connection once sitemap exists (no google-site-verification meta tag found — likely never connected)
+  - Minor: mobile hero carousel prev/next arrows slightly overlap subheading text at 375–390px width
+  - Needs manual check: desktop hover-only nav dropdowns on touch/hybrid devices (≥1024px breakpoint, tool couldn't emulate `hover:none`)
 
 ## Deploy Protocol
 1. `git add -A && git commit -m "..."` from project root
