@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface LogoProps {
   className?: string;
   size?: "sm" | "md" | "lg";
@@ -12,34 +14,16 @@ export default function Logo({ className = "", size = "md", variant = "default" 
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      {/* ha monogram */}
-      <svg
-        width={Math.round(52 * s)}
+      {/* ha monogram — 3D brand mark */}
+      <Image
+        src="/ha-icon.png"
+        alt=""
+        width={Math.round(43 * s)}
         height={Math.round(40 * s)}
-        viewBox="0 0 52 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        className="object-contain"
+        priority
         aria-hidden="true"
-      >
-        {/* h — teal */}
-        <path
-          d="M2 4 L2 36 L2 36 M2 20 Q2 13 9 13 L16 13 Q23 13 23 20 L23 36"
-          stroke="#00BFA5"
-          strokeWidth="5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-        {/* a — navy, overlapping */}
-        <path
-          d="M29 14 Q29 9 35 9 L41 9 Q47 9 47 14 L47 36 M29 26 L47 26"
-          stroke="#1B3A6B"
-          strokeWidth="5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      </svg>
+      />
 
       {/* wordmark */}
       <div className="flex flex-col leading-none">
