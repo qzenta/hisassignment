@@ -159,27 +159,41 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-[#F8FAFB] rounded-2xl border border-[#E5E7EB] overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-[200px_1fr]">
+              <div className="grid grid-cols-1 md:grid-cols-[340px_1fr] items-stretch">
 
-                {/* LEFT — avatar */}
-                <div className="flex flex-col items-center justify-center py-10 px-6 bg-[#1A2E4A]">
-                  <div className="relative w-[120px] h-[120px] rounded-full overflow-hidden border-4 border-[#14B8A6]/40">
-                    <Image
-                      src="/nomusa.png"
-                      alt="Nomusa Ngidi"
-                      fill
-                      className="object-cover"
-                      sizes="120px"
-                    />
-                  </div>
+                {/* LEFT — large portrait photo */}
+                <div className="relative min-h-[320px] md:min-h-full bg-[#1A2E4A]">
+                  <Image
+                    src="/nomusa.png"
+                    alt="Nomusa Ngidi"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 340px"
+                    priority
+                  />
                 </div>
 
                 {/* RIGHT — bio */}
                 <div className="p-8 md:p-10 flex flex-col gap-5">
-                  <div>
-                    <h3 className="text-xl font-bold text-[#1A2E4A]">Nomusa Ngidi</h3>
-                    <p className="text-sm font-semibold text-[#14B8A6] mt-1">Founder &amp; Payroll Specialist · Information Officer</p>
-                    <div className="mt-3 h-[2px] w-12 bg-[#14B8A6] rounded-full" />
+                  <div className="flex items-start justify-between gap-4 flex-wrap">
+                    <div>
+                      <h3 className="text-xl font-bold text-[#1A2E4A]">Nomusa Ngidi</h3>
+                      <p className="text-sm font-semibold text-[#14B8A6] mt-1">Founder &amp; Payroll Specialist · Information Officer</p>
+                      <div className="mt-3 h-[2px] w-12 bg-[#14B8A6] rounded-full" />
+                    </div>
+
+                    {/* Social icons — TODO: enable links once Nomusa supplies profiles */}
+                    <div className="flex gap-3">
+                      <span aria-label="Facebook" className="w-9 h-9 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center text-[#94A3B8] opacity-50 pointer-events-none cursor-default">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                      </span>
+                      <span aria-label="X / Twitter" className="w-9 h-9 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center text-[#94A3B8] opacity-50 pointer-events-none cursor-default">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                      </span>
+                      <span aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center text-[#94A3B8] opacity-50 pointer-events-none cursor-default">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                      </span>
+                    </div>
                   </div>
 
                   <p className="text-[#374151] leading-relaxed text-sm">
