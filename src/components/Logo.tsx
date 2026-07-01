@@ -18,8 +18,8 @@ export default function Logo({ className = "", size = "md", variant = "default" 
       <Image
         src="/ha-icon.png"
         alt=""
-        width={Math.round(43 * s)}
-        height={Math.round(40 * s)}
+        width={Math.round(64 * s)}
+        height={Math.round(60 * s)}
         className="object-contain"
         priority
         aria-hidden="true"
